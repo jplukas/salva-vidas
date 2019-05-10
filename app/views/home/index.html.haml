@@ -1,1 +1,5 @@
-%p olá hello!
+%p Olá estudantes!
+
+-@adicoes.each do |a|
+    =a.titulo
+    =link_to a.titulo, controller: :materias, action: :exibir, id: a

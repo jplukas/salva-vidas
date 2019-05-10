@@ -59,4 +59,4 @@ gem 'haml'
 gem 'haml-rails', :group => 'development'
 gem 'devise'
 gem 'erb2haml', group: :development
-gem "rspec-rails", "~> 3.1.0"
+gem "rspec-rails"
