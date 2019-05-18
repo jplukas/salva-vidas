@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_18_045814) do
+ActiveRecord::Schema.define(version: 2019_05_18_153632) do
+
+  create_table "cursos", force: :cascade do |t|
+    t.string "nome"
+    t.text "desc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nome"], name: "index_cursos_on_nome"
+  end
+
+  create_table "disciplinas", force: :cascade do |t|
+    t.string "nome"
+    t.text "desc"
+    t.integer "curso_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["curso_id"], name: "index_disciplinas_on_curso_id"
+    t.index ["nome"], name: "index_disciplinas_on_nome"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
