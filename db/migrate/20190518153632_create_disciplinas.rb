@@ -1,7 +1,7 @@
 class CreateDisciplinas < ActiveRecord::Migration[5.2]
   def change
     create_table :disciplinas do |t|
-      t.string :nome
+      t.string :nome, null: false
       t.text :desc
       t.references :curso, foreign_key: true
 

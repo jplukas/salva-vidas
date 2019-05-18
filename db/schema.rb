@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2019_05_18_153632) do
 
   create_table "cursos", force: :cascade do |t|
-    t.string "nome"
+    t.string "nome", null: false
     t.text "desc"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2019_05_18_153632) do
   end
 
   create_table "disciplinas", force: :cascade do |t|
-    t.string "nome"
+    t.string "nome", null: false
     t.text "desc"
     t.integer "curso_id"
     t.datetime "created_at", null: false
