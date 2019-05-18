@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_18_153632) do
+ActiveRecord::Schema.define(version: 2019_05_18_172638) do
 
   create_table "cursos", force: :cascade do |t|
     t.string "nome", null: false
@@ -30,6 +30,18 @@ ActiveRecord::Schema.define(version: 2019_05_18_153632) do
     t.index ["nome"], name: "index_disciplinas_on_nome"
   end
 
+  create_table "materials", force: :cascade do |t|
+    t.string "nome", null: false
+    t.text "conteudo", null: false
+    t.integer "disciplina_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["disciplina_id"], name: "index_materials_on_disciplina_id"
+    t.index ["nome", nil, nil], name: "index_materials_on_nome_and_disciplina_and_user"
+    t.index ["user_id"], name: "index_materials_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -41,6 +53,16 @@ ActiveRecord::Schema.define(version: 2019_05_18_153632) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "votos", force: :cascade do |t|
+    t.integer "material_id"
+    t.integer "user_id"
+    t.binary "up", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["material_id"], name: "index_votos_on_material_id"
+    t.index ["user_id"], name: "index_votos_on_user_id"
   end
 
 end
