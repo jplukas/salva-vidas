@@ -1,2 +1,6 @@
-%h1 Cursos#show
-%p Find me in app/views/cursos/show.html.haml
+%h1= @curso.nome
+%p= @curso.desc
+
+%p Disciplinas desse curso:
+%ul
+    =render @disciplinas

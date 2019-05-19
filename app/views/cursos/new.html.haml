@@ -1,2 +1,10 @@
-%h1 Cursos#new
-%p Find me in app/views/cursos/new.html.haml
+%h1 Criar novo curso
+= form_for (@curso) do |f|
+    =f.label :nome
+    =f.text_field :nome
+    %br
+    =f.label :desc
+    =f.text_area :desc
+    %br
+    
+  

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :disciplinas do
         resources :materials do
           resources :comentarios, only: [:create, :destroy]
+          resources :votos, only: [:create, :update, :destroy]
         end
       end
     end
