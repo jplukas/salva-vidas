@@ -11,6 +11,7 @@ class MaterialsController < ApplicationController
 
   def show
     @material = Material.find(params[:id])
+    @autor = @material.user
   end
 
   def edit
