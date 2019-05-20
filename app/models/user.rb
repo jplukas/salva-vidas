@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :materials
   has_many :comentarios
   has_many :votos
+
+  validates :nome, presence: true, length: {maximum: 15}
 end
