@@ -14,4 +14,19 @@ class CursosController < ApplicationController
 
   def edit
   end
+
+  def create
+    @curso = Curso.new(curso_params)
+    if @curso.save
+      flash[:success] = "Cadastro realizado!"
+    else
+      flash[:danger] = "A ação não pôde ser realizada."
+    end
+    render 'new'
+  end
+
+  private
+  def curso_params
+    params.require(:curso).permit(:nome, :desc)
+  end
 end
