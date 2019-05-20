@@ -21,6 +21,7 @@ class MaterialsController < ApplicationController
   def create
     @material = Material.new(material_params)
     @material.disciplina_id = params[:disciplina_id]
+    @material.user_id = current_user.id
     if @material.save
       flash[:success] = "Cadastro realizado!"
     else
@@ -48,6 +49,6 @@ class MaterialsController < ApplicationController
 
   private
   def material_params
-    params.require(:material).permit(:nome, :desc)
+    params.require(:material).permit(:nome, :conteudo)
   end
 end

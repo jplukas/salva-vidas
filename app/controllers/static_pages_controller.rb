@@ -1,7 +1,5 @@
 class StaticPagesController < ApplicationController
   def home
-  end
-  def mensagem
-    @mensagem = "Bom dia"
+    @user = current_user
   end
 end

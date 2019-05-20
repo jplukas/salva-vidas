@@ -1,2 +1,13 @@
-%h1 Materials#new
-%p Find me in app/views/materials/new.html.haml
+%h1
+    Criar novo material para a disciplina
+    =@disciplina.nome
+= form_for ([@material.disciplina, @material]) do |f|
+    =f.label :nome
+    =f.text_field :nome
+    %br
+    =f.label "Conteúdo"
+    =f.text_area :conteudo
+    %br
+    =f.submit "Salvar"
+      
+    
