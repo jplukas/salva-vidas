@@ -1,2 +1,12 @@
-%h1 Cursos#edit
-%p Find me in app/views/cursos/edit.html.haml
+%h1
+    Editar
+    =@curso.nome
+=form_for (@curso) do |f|
+    =f.label :nome
+    =f.text_field :nome
+    %br
+    =f.label "Descrição"
+    =f.text_area :desc
+    %br
+    =f.submit "Salvar"
+  

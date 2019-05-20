@@ -13,6 +13,7 @@ class CursosController < ApplicationController
   end
 
   def edit
+    @curso = Curso.find(params[:id])
   end
 
   def create
@@ -23,6 +24,22 @@ class CursosController < ApplicationController
       flash[:danger] = "A ação não pôde ser realizada."
     end
     render 'new'
+  end
+
+  def update
+    @curso = Curso.find(params[:id])
+    if @curso.update_attributes(curso_params)
+      flash[:success] = "Registro atualizado!"
+    else
+      flash[:danger] = "A ação não pôde ser realizada."
+    end
+    render 'edit'
+  end
+
+  def destroy
+    @curso = Curso.find(params[:id])
+    @curso.destroy
+    redirect_to '/cursos'
   end
 
   private

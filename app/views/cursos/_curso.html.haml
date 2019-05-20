@@ -1,2 +1,4 @@
 %li
     =link_to curso.nome, curso
+    |
+    =link_to 'excluir', curso, method: :delete, data: { confirm: "Tem certeza?" }
