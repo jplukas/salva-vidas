@@ -1,2 +1,7 @@
-%h1 Disciplinas#index
-%p Find me in app/views/disciplinas/index.html.haml
+%h1
+    Disciplinas cadastradas no curso
+    =@curso.nome :
+    %ul
+        =render @disciplinas
+    
+    

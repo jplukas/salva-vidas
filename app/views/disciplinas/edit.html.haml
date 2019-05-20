@@ -1,2 +1,13 @@
-%h1 Disciplinas#edit
-%p Find me in app/views/disciplinas/edit.html.haml
+%h1
+    Criar nova disciplina para o curso
+    =@curso.nome
+= form_for (@disciplina) do |f|
+    =f.label :nome
+    =f.text_field :nome
+    %br
+    =f.label "Descrição"
+    =f.text_area :desc
+    %br
+    =f.submit "Salvar"
+      
+    
