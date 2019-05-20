@@ -60,13 +60,16 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+#gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 
 gem 'haml'
 gem 'haml-rails', :group => :development
 gem "erb2haml", :group => :development
+group :development, :test do
+  gem 'rspec-rails', '~> 3.8.0'
+end
 
 # Use bootstrap
 gem 'bootstrap-sass', '3.3.7'
