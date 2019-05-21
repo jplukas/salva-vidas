@@ -13,6 +13,7 @@ class MaterialsController < ApplicationController
     @material = Material.find(params[:id])
     @autor = @material.user
     @comentarios = @material.comentarios
+    # @newcom = @material.comentarios.build
   end
 
   def edit

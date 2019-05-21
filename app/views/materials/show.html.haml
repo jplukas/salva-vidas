@@ -10,3 +10,10 @@
 
 %ul
     =render @comentarios
+
+%h5 Comentar:
+
+=form_for(:comentario, url: material_comentarios_path(@material)) do |f|
+    =f.text_area :conteudo
+    %br
+    =f.submit "Salvar"

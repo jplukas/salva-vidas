@@ -1,14 +1,14 @@
 class ComentariosController < ApplicationController
   def create
     @comentario = Comentario.new(comentario_params)
-    @comentario.user_id = params[:user_id]
+    @comentario.user_id = current_user.id
     @comentario.material_id = params[:material_id]
     if @comentario.save
       flash[:success] = "Cadastro realizado!"
     else
       flash[:danger] = "A ação não pôde ser realizada."
     end
-    redirect_to new_material_comentario_path(@comentario.material)
+    redirect_to material_path(@comentario.material)
   end
 
   def destroy
@@ -20,6 +20,6 @@ class ComentariosController < ApplicationController
 
   private
   def comentario_params
-    params.require(:material).permit(:conteudo)
+    params.require(:comentario).permit(:conteudo)
   end
 end
