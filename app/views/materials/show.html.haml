@@ -1,19 +1,22 @@
-.material-show
-    %h1= @material.nome
-    %p=@material.conteudo
+.row
+    .material-show.col-sm-8
+        .material
+            %p.material-dados.material-dados-top
+                Enviado por: 
+                =@material.user.nome 
+                =time_ago_in_words @material.created_at
+                ago
+            %h2= @material.nome
+            %p=@material.conteudo
 
-    %p
-        Autor da publicação:
-        =@autor.nome 
+        .comentarios
+            %h4
+                Comentários nessa publicação:
+            =render @comentarios
 
-.comentarios
-    %h4
-        Comentários nessa publicação:
-    =render @comentarios
+            %h5 Comentar:
 
-    %h5 Comentar:
-
-    =form_for(:comentario, url: material_comentarios_path(@material)) do |f|
-        =f.text_area :conteudo
-        %br
-        =f.submit "Salvar"
+            =form_for(:comentario, url: material_comentarios_path(@material)) do |f|
+                =f.text_area :conteudo
+                %br
+                =f.submit "Salvar"

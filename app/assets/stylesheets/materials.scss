@@ -13,56 +13,73 @@
     border-bottom: 1px solid $gray-lighter;
     margin: 20px;
     position: relative;
+    padding: 10px;
+    background-color: white;
+    border-radius: 6px;
 
     h2{
         // border: 1px solid $gray-lighter;
         margin-top: 0px;
+        a{
+            color: black;
+        }
     }
 
-    .material-dados{
-        color: darkgray;
-        font-size: 12px;
-        margin-bottom: 0px;
+    .fav-button{
+        // border: 1px solid $gray-lighter;
+        position: absolute; 
+        top: 2px;
+        right:2px;
+        padding: 0px;
+    }
+    
+    .vote{
+         border: 1px solid $gray-lighter;
+         position: absolute; 
+         bottom: 2px;
+         right: 2px;
+         padding: 0px;
+    
+         .up{
+            border: 1px solid black;
+            float: left;
+         }
+         .down{
+            border: 1px solid black;
+            float: right;
+         }
+    }
+    
+    .bookmark-saved{
+        background-color: gold;
+    }
+    
+    .octicon{
+        margin: 0px;
+    }
+}
+
+.material-dados{
+    color: darkgray;
+    font-size: 12px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+.material-show{
+    border: 1px solid $gray-lighter;
+    padding: 10px;
+    background-color: white;
+    border-radius: 6px;
+    h2{
         margin-top: 0px;
     }
 }
-.material-show{
 
+.material{
+   margin-bottom: 20px;
+   border-bottom: 1px solid $gray-lighter;
 }
 
 .comentarios{
     
-}
-
-.fav-button{
-    // border: 1px solid $gray-lighter;
-    position: absolute; 
-    top: 0px;
-    right:0px;
-    padding: 0px;
-}
-
-.vote{
-     border: 1px solid $gray-lighter;
-     position: absolute; 
-     bottom: 0px;
-     right: 0px;
-     padding: 0px;
-
-     .up{
-        border: 1px solid black;
-        float: left;
-     }
-     .down{
-        border: 1px solid black;
-        float: right;
-     }
-}
-
-.bookmark-saved{
-    background-color: gold;
-}
-
-.octicon{
-    margin: 0px;
 }
