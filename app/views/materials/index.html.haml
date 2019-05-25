@@ -1,6 +1,9 @@
-%h1 
-    Materiais da disciplina
-    =@disciplina.nome
-
-%ul
-    =render @materials
+.center.jumbotron
+    %h1
+        Materiais cadastrados da disciplina
+        =@disciplina.nome 
+        do curso 
+        =@disciplina.curso.nome
+.row
+    .col-sm-8.materiais
+        =render @materials

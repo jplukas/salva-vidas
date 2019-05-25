@@ -71,5 +71,11 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.8.0'
 end
 
+gem 'jquery-rails'
+
 # Use bootstrap
 gem 'bootstrap-sass', '3.3.7'
+
+gem 'octicons'
+
+gem 'octicons_helper'
