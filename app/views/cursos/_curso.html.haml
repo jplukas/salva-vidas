@@ -1,4 +1,5 @@
-%li
-    =link_to curso.nome, curso
-    |
-    =link_to 'excluir', curso, method: :delete, data: { confirm: "Tem certeza?" }
+.curso-feed
+    %h2=link_to curso.nome, curso
+    %p.curso-desc= curso.desc
+    %p.curso-dados
+        x discplinas | x posts | x usuarios interagindo

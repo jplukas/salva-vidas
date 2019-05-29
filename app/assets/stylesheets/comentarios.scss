@@ -4,4 +4,17 @@
 
 .comentario{
     margin: 10px;
+    position: relative;
+}
+.comentario-dados{
+    color: darkgray;
+    font-size: 12px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+
+.options{
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }

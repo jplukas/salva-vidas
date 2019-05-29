@@ -10,7 +10,7 @@
 }
 
 .material-feed{
-    border-bottom: 1px solid $gray-lighter;
+    border: 1px solid gray;
     margin: 20px;
     position: relative;
     padding: 10px;
@@ -33,22 +33,6 @@
         padding: 0px;
     }
     
-    .vote{
-         border: 1px solid $gray-lighter;
-         position: absolute; 
-         bottom: 2px;
-         right: 2px;
-         padding: 0px;
-    
-         .up{
-            border: 1px solid black;
-            float: left;
-         }
-         .down{
-            border: 1px solid black;
-            float: right;
-         }
-    }
     
     .bookmark-saved{
         background-color: gold;
@@ -70,16 +54,36 @@
     padding: 10px;
     background-color: white;
     border-radius: 6px;
+    margin-bottom: 10px;
     h2{
         margin-top: 0px;
     }
 }
 
 .material{
+    margin-bottom: 20px;
+    border-bottom: 1px solid $gray-lighter;
+    padding-bottom: 5px;
+    position: relative;
+}
+
+.material-content{
    margin-bottom: 20px;
-   border-bottom: 1px solid $gray-lighter;
+   position: relative;
 }
 
 .comentarios{
     
+}
+
+.btn-comment{
+    // position: absolute;
+    // right: 0px;
+}
+
+.material-bottom{
+    color: darkgray;
+    font-size: 12px;
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
