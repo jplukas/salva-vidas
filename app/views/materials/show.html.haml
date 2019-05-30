@@ -9,22 +9,28 @@
                     ago
                 %h2= @material.nome
                 %p=@material.conteudo
+                %p= link_to @material.link, @material.link
                 .material-bottom
                     = pluralize(0, 'ponto')
                     |
                     = pluralize(@material.comentarios.count, 'comentário')
 
-                .vote
-                    %a.up{:id => "material/#{@material.id}/upvote"}(href="javascript:void(0);")
-                        =octicon "arrow-up", height: 26
-                    %a.down{:id => "material/#{@material.id}/downvote"}(href="javascript:void(0);")
-                        =octicon "arrow-down", height: 26
-            %h5 Comentar:
-
-            =form_for(:comentario, url: material_comentarios_path(@material)) do |f|
-                =f.text_area :conteudo
-                %br
-                =f.submit "Comentar", :class => "btn btn-primary btn-comment"
+                -if user_signed_in?
+                    .vote
+                        %a.up{:id => "material/#{@material.id}/upvote"}(href="javascript:void(0);")
+                            =octicon "arrow-up", height: 26
+                        %a.down{:id => "material/#{@material.id}/downvote"}(href="javascript:void(0);")
+                            =octicon "arrow-down", height: 26
+            
+            %h5 Comentários:
+            -if user_signed_in?
+                =form_for(:comentario, url: material_comentarios_path(@material)) do |f|
+                    =f.text_area :conteudo
+                    %br
+                    =f.submit "Comentar", :class => "btn btn-primary btn-comment"
+            -else
+                = link_to 'Faça login para comentar e votar', new_user_session_path
+        
         .comentarios
             =render @comentarios
 

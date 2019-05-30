@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_19_140825) do
+ActiveRecord::Schema.define(version: 2019_05_30_162710) do
 
   create_table "comentarios", force: :cascade do |t|
     t.text "conteudo"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2019_05_19_140825) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "link"
     t.index ["disciplina_id"], name: "index_materials_on_disciplina_id"
     t.index ["nome", nil, nil], name: "index_materials_on_nome_and_disciplina_and_user"
     t.index ["user_id"], name: "index_materials_on_user_id"
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 2019_05_19_140825) do
     t.string "nome"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

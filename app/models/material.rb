@@ -4,6 +4,6 @@ class Material < ApplicationRecord
   has_many :comentarios
   has_many :votos
 
-  validates :nome, presence: true, uniqueness: true, length: {maximum: 30}
+  validates :nome, presence: true, uniqueness: true, length: {maximum: 50}
   validates :conteudo, presence: true
 end

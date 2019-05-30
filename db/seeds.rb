@@ -1,7 +1,38 @@
-User.create!([
-  {email: "jplukasavicus@gmail.com", encrypted_password: "$2a$11$Ab4Fd3.XtXbe0rbcyGd3GuXvE5n1LpBBpoD72RkuJDlXCJSFp0uHi", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, nome: "João Pedro"},
-  {email: "lukasavicus@gmail.com", encrypted_password: "$2a$11$pN6b558y9eF4zeIN7cfQzeZ3QkCKRwN2kkwy8nB5mEr53dVwLeNNS", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, nome: "Lucas silva"}
-])
+u1 = User.create({email: "jplukasavicus@gmail.com", encrypted_password: "$2a$11$Ab4Fd3.XtXbe0rbcyGd3GuXvE5n1LpBBpoD72RkuJDlXCJSFp0uHi", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, nome: "João Pedro"})
+u1.save(validate: false)
+u2 = User.create({email: "lukasavicus@gmail.com", encrypted_password: "$2a$11$pN6b558y9eF4zeIN7cfQzeZ3QkCKRwN2kkwy8nB5mEr53dVwLeNNS", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, nome: "Lucas silva"})
+u2.save(validate: false)
+u3 = User.create({email: "admin@admin.com", encrypted_password: "$2a$11$xurTYzz4VlCKBVpwDOIojuygYqpKFDuV8H4wKnI3EoiTGnj2pOTu6", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, nome: "Administrador", admin: true})
+u3.save(validate: false)
+
+curso=Curso.create!({nome:'BCC', desc: 'Bacharelado em Ciência da Computação'})
+
+disciplina=Disciplina.create!({nome:'TecProg2', curso:curso, desc: 'Técnicas de Programação II'})
+Material.create!({nome:'Ruby',disciplina:disciplina,user:u1,
+    conteudo: 'Como aprender Ruby', link: 'https://www.rubyguides.com/'})
+Material.create!({nome:'Rails',disciplina:disciplina,user:u1,
+    conteudo: 'Tutoriais de Rails', link: 'https://www.rubyguides.com/'})
+
+disciplina=Disciplina.create!({nome:'Métodos Numéricos', curso:curso, desc: 'Ponto flutuante, métodos de ponto fixo, multiplicação de matrizes...'})
+Material.create!({nome:'Ponto flutuante',disciplina:disciplina,user:u2,
+    conteudo: 'Exemplos em C e Python', 
+    link: 'https://www.ime.usp.br/~leo/mac2166/2017-1/introducao_float.html'})
+Material.create!({nome:'Multiplicação de matrizes',disciplina:disciplina,user:u2,
+    conteudo: 'Otimização com cache e paralelismo', 
+    link: 'https://pt.slideshare.net/eduardofalcao/estudo-e-avaliao-do-problema-de-otimizao-da-multiplicao-de-cadeias-de-matrizes'})
+
+curso=Curso.create!({nome:'Pura', desc: 'Bacharelado em Matemática'})
+
+disciplina=Disciplina.create!({nome:'Cálculo', curso:curso, desc: 'Limites, derivadas, integrais...'})
+Material.create!({nome:'Limites',disciplina:disciplina,user:u1,
+    conteudo: 'O material que me salvou', 
+    link: 'https://www.youtube.com/user/OmatematicoGrings'})
+
+disciplina=Disciplina.create!({nome:'Álgebra Linear', curso:curso, desc: 'Transformações lineares, espaços vetoriais...'})
+Material.create!({nome:'Transformações lineares',disciplina:disciplina,user:u2,
+    conteudo: 'Exemplos práticos', 
+    link: 'https://pt.khanacademy.org/math/linear-algebra/matrix-transformations#lin-trans-examples'})
+
 Comentario.create!([
   {conteudo: "Eh foda dmais msm", user_id: 1, material_id: 1},
   {conteudo: "nadave", user_id: 2, material_id: 1},
