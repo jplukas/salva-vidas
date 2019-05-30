@@ -1,0 +1,20 @@
+%span{data: {pontos_id: material.id}}= pluralize(material.votos.sum(:sinal), 'ponto')
+|
+= pluralize(material.comentarios.count, 'comentário')
+
+-if user_signed_in?
+    .meu_voto{data: {pontos_id: material.id}}
+        - meu = material.votos.find_by(user_id: current_user.id)
+        - if meu != nil
+            - if meu.sinal == +1
+                Gostei
+            - else
+                Não gostei
+    .vote
+        %a.up{id: "material/#{material.id}/upvote", data: {id: material.id}}(href="javascript:void(0);")
+            =octicon "arrow-up", height: 26
+        %a.down{id: "material/#{material.id}/downvote", data: {id: material.id}}(href="javascript:void(0);")
+            =octicon "arrow-down", height: 26    
+    
+    
+

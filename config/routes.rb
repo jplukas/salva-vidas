@@ -12,4 +12,8 @@ Rails.application.routes.draw do
       end
     end
   end
+  
+  post '/voto-up', controller: :votos, action: :up
+  post '/voto-down', controller: :votos, action: :down
+  
 end

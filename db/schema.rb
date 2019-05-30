@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_30_162710) do
+ActiveRecord::Schema.define(version: 2019_05_30_182415) do
 
   create_table "comentarios", force: :cascade do |t|
     t.text "conteudo"
@@ -70,9 +70,9 @@ ActiveRecord::Schema.define(version: 2019_05_30_162710) do
   create_table "votos", force: :cascade do |t|
     t.integer "material_id"
     t.integer "user_id"
-    t.binary "up", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "sinal"
     t.index ["material_id"], name: "index_votos_on_material_id"
     t.index ["user_id"], name: "index_votos_on_user_id"
   end
