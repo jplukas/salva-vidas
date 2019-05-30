@@ -6,7 +6,7 @@ $(document).ready(function() {
             '/voto-up', 
             {id: id},
             function(data) {
-                atualiza(id, data.pontos, +1);
+                atualiza(id, data.pontos, 'Gostei');
             }
         );
     });
@@ -18,7 +18,7 @@ $(document).ready(function() {
             '/voto-down', 
             {id: id},
             function(data) {
-                atualiza(id, data.pontos, -1);
+                atualiza(id, data.pontos, 'Não gostei');
             }
         );
     });
@@ -26,9 +26,6 @@ $(document).ready(function() {
 });
 
 function atualiza(id, pontos, meu_voto) {
-    $('span[data-pontos-id=' + id + ']').text(pontos + (Math.abs(pontos) > 1 ? ' pontos' : ' ponto'));
-    if (meu_voto == +1)
-        $('.meu_voto[data-pontos-id=' + id + ']').text('Gostei');
-    else
-        $('.meu_voto[data-pontos-id=' + id + ']').text('Nao gostei');
+    $('.voto_material[data-pontos-id=' + id + ']').text(pontos + (Math.abs(pontos) > 1 ? ' pontos' : ' ponto'));
+    $('.meu_voto[data-pontos-id=' + id + ']').text(meu_voto);
 }

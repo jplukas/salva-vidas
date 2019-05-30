@@ -1,9 +1,9 @@
-%span{data: {pontos_id: material.id}}= pluralize(material.votos.sum(:sinal), 'ponto')
+%span.voto_material{data: {pontos_id: material.id}}= pluralize(material.votos.sum(:sinal), 'ponto')
 |
 = pluralize(material.comentarios.count, 'comentário')
 
 -if user_signed_in?
-    .meu_voto{data: {pontos_id: material.id}}
+    %span.meu_voto{data: {pontos_id: material.id}}
         - meu = material.votos.find_by(user_id: current_user.id)
         - if meu != nil
             - if meu.sinal == +1
