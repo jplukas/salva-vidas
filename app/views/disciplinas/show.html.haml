@@ -1,2 +1,8 @@
-%h1= @disciplina.nome
-%p= @disciplina.desc
+.row
+    .col-sm-8.disciplinas
+        %h1
+            Materiais de
+            =@disciplina.nome 
+            do curso de 
+            =@disciplina.curso.nome
+        =render @disciplina.materials

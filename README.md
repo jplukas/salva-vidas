@@ -1,24 +1,34 @@
-# README
+# Repósitório e implementação básica
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Enunciado
 
-Things you may want to cover:
+Nesta entrega, o repositório GIT deve estar pronto e funcionando, com a estrutura básica do aplicativo montada e com a documentação da arquitetura implementada, além de um pequeno manual de instalação e utilização.
 
-* Ruby version: 2.6.1
+Deve ser entregue no paca um relatório sucinto do que foi feito, quais os próximos passos  e das principais dificuldades encontradas.
 
-* System dependencies
+## Utilização
 
-* Configuration ?
+Setup básico de uma aplicação Rails. No seeds.rb existem alguns dados de exemplo.
 
-* Database creation
+```
+bin/bundle install
+bin/rake db:create
+bin/rake db:migrate 
+bin/rake db:seed
+```
 
-* Database initialization
+## Modelos
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## Arquitetura
 
-* ...
+
+
+## O que falta
+
+
+
+
+## Contribuição dos membros
+

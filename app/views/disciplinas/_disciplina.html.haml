@@ -1,4 +1,5 @@
-%li
-    =link_to disciplina.nome, disciplina
-    |
-    =link_to 'excluir', disciplina, method: :delete, data: { confirm: "Tem certeza?" }
+.disciplina-feed
+    %h2=link_to disciplina.nome, disciplina
+    %p.disciplina-desc= disciplina.desc
+    %p.disciplina-dados
+        x posts | x usuarios seguindo

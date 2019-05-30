@@ -1,22 +1,30 @@
 .row
     .material-show.col-sm-8
         .material
-            %p.material-dados.material-dados-top
-                Enviado por: 
-                =@material.user.nome 
-                =time_ago_in_words @material.created_at
-                ago
-            %h2= @material.nome
-            %p=@material.conteudo
+            .material-content
+                %p.material-dados.material-dados-top
+                    Enviado por: 
+                    =@material.user.nome 
+                    =time_ago_in_words @material.created_at
+                    ago
+                %h2= @material.nome
+                %p=@material.conteudo
+                .material-bottom
+                    = pluralize(0, 'ponto')
+                    |
+                    = pluralize(@material.comentarios.count, 'comentário')
 
-        .comentarios
-            %h4
-                Comentários nessa publicação:
-            =render @comentarios
-
+                .vote
+                    %a.up{:id => "material/#{@material.id}/upvote"}(href="javascript:void(0);")
+                        =octicon "arrow-up", height: 26
+                    %a.down{:id => "material/#{@material.id}/downvote"}(href="javascript:void(0);")
+                        =octicon "arrow-down", height: 26
             %h5 Comentar:
 
             =form_for(:comentario, url: material_comentarios_path(@material)) do |f|
                 =f.text_area :conteudo
                 %br
-                =f.submit "Salvar"
+                =f.submit "Comentar", :class => "btn btn-primary btn-comment"
+        .comentarios
+            =render @comentarios
+

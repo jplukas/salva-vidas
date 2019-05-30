@@ -79,3 +79,5 @@ gem 'bootstrap-sass', '3.3.7'
 gem 'octicons'
 
 gem 'octicons_helper'
+
+gem 'seed_dump'
