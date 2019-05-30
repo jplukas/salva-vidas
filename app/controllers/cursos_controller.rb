@@ -1,4 +1,7 @@
 class CursosController < ApplicationController
+
+  before_action :require_admin_privileges, only: [:new, :edit, :create, :update, :destroy]
+
   def index
     @cursos = Curso.all
   end

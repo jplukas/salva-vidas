@@ -1,4 +1,7 @@
 class ComentariosController < ApplicationController
+
+  before_action :authenticate_user!
+
   def create
     @comentario = Comentario.new(comentario_params)
     @comentario.user_id = current_user.id

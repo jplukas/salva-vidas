@@ -4,17 +4,19 @@
         =material.user.nome 
         =time_ago_in_words material.created_at
         ago
-    .fav-button
-        %a{:id => "materials/#{material.id}/bookmark"}(href="javascript:void(0);")
-            =octicon "bookmark", height: 26
+    - if user_signed_in?
+        .fav-button
+            %a{:id => "materials/#{material.id}/bookmark"}(href="javascript:void(0);")
+                =octicon "bookmark", height: 26
     %h2=link_to material.nome, material
     %p.material-conteudo= material.conteudo
     %p.material-dados
         = pluralize(0, 'ponto')
         |
         = pluralize(material.comentarios.count, 'comentário')
-    .vote
-        %a.up{:id => "material/#{material.id}/upvote"}(href="javascript:void(0);")
-            =octicon "arrow-up", height: 26
-        %a.down{:id => "material/#{material.id}/downvote"}(href="javascript:void(0);")
-            =octicon "arrow-down", height: 26    
+    -if user_signed_in?
+        .vote
+            %a.up{:id => "material/#{material.id}/upvote"}(href="javascript:void(0);")
+                =octicon "arrow-up", height: 26
+            %a.down{:id => "material/#{material.id}/downvote"}(href="javascript:void(0);")
+                =octicon "arrow-down", height: 26

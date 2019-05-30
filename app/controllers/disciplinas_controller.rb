@@ -1,4 +1,7 @@
 class DisciplinasController < ApplicationController
+
+  before_action :require_admin_privileges, only: [:new, :edit, :create, :update, :destroy]
+
   def index
     @curso= Curso.find(params[:curso_id])
     @disciplinas = @curso.disciplinas
