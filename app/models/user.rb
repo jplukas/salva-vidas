@@ -7,6 +7,9 @@ class User < ApplicationRecord
   has_many :materials
   has_many :comentarios
   has_many :votos
+  
+  has_many :rel_user_disciplinas, foreign_key: "seguidor_id", dependent: :destroy
+  has_many :seguindo, through: :rel_user_disciplinas, source: :seguido
 
   validates :nome, presence: true, length: {maximum: 15}
 end
