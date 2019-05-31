@@ -11,16 +11,7 @@
                 %p=@material.conteudo
                 %p= link_to @material.link, @material.link
                 .material-bottom
-                    = pluralize(0, 'ponto')
-                    |
-                    = pluralize(@material.comentarios.count, 'comentário')
-
-                -if user_signed_in?
-                    .vote
-                        %a.up{:id => "material/#{@material.id}/upvote"}(href="javascript:void(0);")
-                            =octicon "arrow-up", height: 26
-                        %a.down{:id => "material/#{@material.id}/downvote"}(href="javascript:void(0);")
-                            =octicon "arrow-down", height: 26
+                    =render 'interacao', material: @material
             
             %h5 Comentários:
             -if user_signed_in?

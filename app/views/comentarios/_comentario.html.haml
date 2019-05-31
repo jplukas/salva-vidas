@@ -5,14 +5,21 @@
         =time_ago_in_words comentario.created_at
         ago
         |
-        = pluralize(0, 'ponto')
+        %span.voto_comentario{data: {pontos_id: comentario.id}}= pluralize(comentario.voto_comentarios.sum(:sinal), 'ponto')
+        -if user_signed_in?
+            %span.meu_voto_com{data: {pontos_id: comentario.id}}
+                - meu = comentario.voto_comentarios.find_by(user_id: current_user.id)
+                - if meu != nil
+                    - if meu.sinal == +1
+                        Gostei
+                    - else
+                        Não gostei
     %p
         =comentario.conteudo
-        -if user_signed_in?
-            .vote
-                %a.up{:id => "comentario/#{comentario.id}/upvote"}(href="javascript:void(0);")
-                    =octicon "arrow-up", height: 26
-                %a.down{:id => "comentario/#{comentario.id}/downvote"}(href="javascript:void(0);")
-                    =octicon "arrow-down", height: 26    
+    -if user_signed_in?
+        .vote
+            %a.com_up{:id => "comentario/#{comentario.id}/upvote", data: {id: comentario.id}}(href="javascript:void(0);")
+                =octicon "arrow-up", height: 26
+            %a.com_down{:id => "comentario/#{comentario.id}/downvote", data: {id: comentario.id}}(href="javascript:void(0);")
+                =octicon "arrow-down", height: 26    
     =link_to 'excluir', comentario, method: :delete, data: { confirm: "Tem certeza?" } if current_user == comentario.user
-    

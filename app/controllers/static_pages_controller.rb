@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
   def home
-    @user = current_user
+    @ultimos = Material.order(id: :desc).limit(10)
   end
 end
