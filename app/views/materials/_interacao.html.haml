@@ -3,18 +3,25 @@
 = pluralize(material.comentarios.count, 'comentário')
 
 -if user_signed_in?
+    - meu = material.votos.find_by(user_id: current_user.id)
+    - if meu == nil
+        - sinal = 0
+    - else
+        - sinal = meu.sinal
     %span.meu_voto{data: {pontos_id: material.id}}
-        - meu = material.votos.find_by(user_id: current_user.id)
-        - if meu != nil
-            - if meu.sinal == +1
-                Gostei
-            - else
-                Não gostei
+        - if sinal == +1
+            Gostei
+        - elsif sinal == -1
+            Não gostei
     .vote
         %a.up{id: "material/#{material.id}/upvote", data: {id: material.id}}(href="javascript:void(0);")
-            =octicon "arrow-up", height: 26
+            - if sinal == +1
+                = image_tag 'up-ativo.png'
+            - else
+                = image_tag 'up-inativo.png'
         %a.down{id: "material/#{material.id}/downvote", data: {id: material.id}}(href="javascript:void(0);")
-            =octicon "arrow-down", height: 26    
-    
-    
+            - if sinal == -1
+                = image_tag 'down-ativo.png'
+            - else
+                = image_tag 'down-inativo.png'
 

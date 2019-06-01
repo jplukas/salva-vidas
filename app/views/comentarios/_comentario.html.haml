@@ -9,7 +9,10 @@
         -if user_signed_in?
             %span.meu_voto_com{data: {pontos_id: comentario.id}}
                 - meu = comentario.voto_comentarios.find_by(user_id: current_user.id)
-                - if meu != nil
+                - if meu == nil
+                    - sinal = 0
+                - else
+                    - sinal = meu.sinal
                     - if meu.sinal == +1
                         Gostei
                     - else
@@ -19,7 +22,13 @@
     -if user_signed_in?
         .vote
             %a.com_up{:id => "comentario/#{comentario.id}/upvote", data: {id: comentario.id}}(href="javascript:void(0);")
-                =octicon "arrow-up", height: 26
+                - if sinal == +1
+                    = image_tag 'up-ativo.png'
+                - else
+                    = image_tag 'up-inativo.png'
             %a.com_down{:id => "comentario/#{comentario.id}/downvote", data: {id: comentario.id}}(href="javascript:void(0);")
-                =octicon "arrow-down", height: 26    
+                - if sinal == -1
+                    = image_tag 'down-ativo.png'
+                - else
+                    = image_tag 'down-inativo.png'
     =link_to 'excluir', comentario, method: :delete, data: { confirm: "Tem certeza?" } if current_user == comentario.user

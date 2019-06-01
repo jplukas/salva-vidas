@@ -1,13 +1,13 @@
 class VotoComentarioController < ApplicationController
 
     def up
-        cria_ou_altera(params[:id], +1)
-        render json: {pontos: pontuacao(params[:id])}
+        novo_voto = cria_ou_altera(params[:id], +1)
+        render json: {voto: novo_voto, pontos: pontuacao(params[:id])}
     end
     
     def down
-        cria_ou_altera(params[:id], -1)
-        render json: {pontos: pontuacao(params[:id])}
+        novo_voto = cria_ou_altera(params[:id], -1)
+        render json: {voto: novo_voto, pontos: pontuacao(params[:id])}
     end
     
 private
@@ -21,9 +21,16 @@ private
         existente = VotoComentario.find_by(query)
         if existente == nil
            existente = VotoComentario.create(query)
+           existente.sinal = sinal
+           existente.save!
+        elsif existente.sinal == sinal
+           existente.destroy!
+           return 0
+        else
+           existente.sinal = sinal
+           existente.save!
         end
-        existente.sinal = sinal
-        existente.save!
+        return sinal
     end
 
 end
