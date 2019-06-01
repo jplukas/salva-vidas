@@ -9,7 +9,13 @@
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
     =render 'layouts/header'
-    %p.notice= notice
-    %p.alert= alert
+    - if notice
+      %p.notice= notice
+    - if alert
+      %p.alert= alert
+    .busca
+      = form_with url: busca_path, method: :get, local: true do |f|
+        = f.text_field :q, placeholder: 'busque materiais, disciplinas, cursos'
+        = f.submit '', type: :image, src: asset_path('busca.png')
     .container
       = yield

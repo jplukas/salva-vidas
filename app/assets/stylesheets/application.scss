@@ -65,3 +65,17 @@ body {
     color: #666;
     font-size: small;
 }
+
+.notice, .alert, .busca {
+    margin: 0px;
+    padding: 10px;
+    text-align: center;
+}
+
+.busca input {
+    vertical-align: text-bottom;
+}
+
+.busca input#q {
+    width: 40%;
+}

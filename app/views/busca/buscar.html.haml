@@ -1,0 +1,14 @@
+%h1= "Busca por \"#{@texto}\""
+
+- if @materiais.length > 0
+  %h2 Materiais
+  = render @materiais
+
+- if @disciplinas.length > 0
+  %h2 Disciplinas
+  = render @disciplinas
+
+- if @cursos.length > 0
+  %h2 Cursos
+  = render @cursos
+
