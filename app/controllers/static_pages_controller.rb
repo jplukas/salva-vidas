@@ -1,5 +1,5 @@
 class StaticPagesController < ApplicationController
   def home
-    @ultimos = Material.order(id: :desc).limit(10)
+    @feed = current_user.materiais_seguidos.order(created_at: :desc)
   end
 end

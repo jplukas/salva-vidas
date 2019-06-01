@@ -11,5 +11,7 @@ class User < ApplicationRecord
   has_many :rel_user_disciplinas, foreign_key: "seguidor_id", dependent: :destroy
   has_many :seguindo, through: :rel_user_disciplinas, source: :seguido
 
+  has_many :materiais_seguidos, class_name: "Material", through: :seguindo, source: :materials
+
   validates :nome, presence: true, length: {maximum: 15}
 end
