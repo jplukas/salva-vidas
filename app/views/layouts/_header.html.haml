@@ -1,12 +1,12 @@
 %header
   %nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
-    = link_to "Salva vidas", root_path, id: "logo", class: "navbar-brand"
+    = link_to "SalvaVidas", root_path, class: "navbar-brand"
     %ul.navbar-nav.mr-auto
       %li.nav-item= link_to "Home", root_path, class: "nav-link"
       %li.nav-item= link_to "Cursos", cursos_path, class: "nav-link"
     = form_with class: "form-inline", url: busca_path, method: :get, local: true do |f|
-      = f.text_field :q, class: "form-control mr-sm-2", placeholder: 'Busque materiais, disciplinas, cursos...'
-      = f.submit class: "btn btn-outline-success my-2 my-sm-0" 
+      = f.text_field :q, class: "form-control mr-sm-2 busca-textbox", placeholder: 'Busque materiais, disciplinas, cursos...'
+      = f.submit class: "btn btn-outline-success my-2 my-sm-0", value: "Buscar"
     %ul.navbar-nav.navbar-right.ml-auto
       - if user_signed_in?
         %li.nav-item.dropdown
@@ -16,6 +16,6 @@
             =link_to 'Editar Cadastro', edit_user_registration_path, class: "dropdown-item"
             =link_to 'Sair', destroy_user_session_path, method: :delete, class: "dropdown-item"
       - else
-        %li= link_to 'Entrar', new_user_session_path
-        %li= link_to 'Cadastrar', new_user_registration_path
+        %li.nav-item= link_to 'Entrar', new_user_session_path, class: "nav-link"
+        %li.nav-item= link_to 'Cadastrar', new_user_registration_path, class: "nav-link"
 
