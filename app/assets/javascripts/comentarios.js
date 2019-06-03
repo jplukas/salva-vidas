@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $('a.com_up').click(function() {
+    $(document).on('click', 'a.com_up', function() {
         var id = $(this).data('id');
         $.post(
             '/voto-comentario-up', 
@@ -12,7 +12,7 @@ $(document).ready(function() {
     });
 
 
-    $('a.com_down').click(function() {
+    $(document).on('click', 'a.com_down', function() {
         var id = $(this).data('id');
         $.post(
             '/voto-comentario-down', 
