@@ -3,3 +3,7 @@
     %p.curso-desc= curso.desc
     %p.curso-dados
         x discplinas | x posts | x usuarios interagindo
+    - if admin_signed_in?
+        %p
+            = link_to 'Editar', edit_curso_path(curso)
+            = link_to 'Excluir', curso_path(curso), data: {:confirm => 'Tem certeza?'}, method: :delete
