@@ -8,11 +8,11 @@
         - sinal = 0
     - else
         - sinal = meu.sinal
-    %span.meu_voto{data: {pontos_id: material.id}}
-        - if sinal == +1
-            Gostei
-        - elsif sinal == -1
-            Não gostei
+    -# %span.meu_voto{data: {pontos_id: material.id}}
+    -#     - if sinal == +1
+    -#         Gostei
+    -#     - elsif sinal == -1
+    -#         Não gostei
     .vote
         %a.up{id: "material/#{material.id}/upvote", data: {id: material.id}}(href="javascript:void(0);")
             - if sinal == +1

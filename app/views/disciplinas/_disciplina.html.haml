@@ -2,7 +2,9 @@
     %h2=link_to disciplina.nome, disciplina
     %p.disciplina-desc= disciplina.desc
     %p.disciplina-dados
-        x posts | x usuarios seguindo
+        ="#{pluralize(disciplina.seguidores.count, 'usuário')} seguindo"
+        |
+        = pluralize(disciplina.materials.count, 'post')
     - if admin_signed_in?
         %p
             = link_to 'Editar', edit_disciplina_path(disciplina)

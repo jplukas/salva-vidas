@@ -14,4 +14,20 @@ class User < ApplicationRecord
   has_many :materiais_seguidos, class_name: "Material", through: :seguindo, source: :materials
 
   validates :nome, presence: true, length: {maximum: 15}
+
+  def seguindo? (disciplina)
+    seguindo.include?(disciplina)
+  end
+
+  def seguir (disciplina)
+    seguindo << disciplina unless seguindo?(disciplina)
+  end
+
+  def deixar_de_seguir (disciplina)
+    seguindo.delete(disciplina)
+  end
+
+  def feed
+    materiais_seguidos.order(created_at: :desc)
+  end
 end

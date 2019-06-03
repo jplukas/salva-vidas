@@ -1,6 +1,5 @@
 class StaticPagesController < ApplicationController
   def home
-    @feed = 'oi'
-    #@feed = current_user.materiais_seguidos.order(created_at: :desc)
+    @materiais = user_signed_in? ? current_user.feed : Material.order(created_at: :desc)
   end
 end

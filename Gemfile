@@ -74,7 +74,7 @@ end
 gem 'jquery-rails'
 
 # Use bootstrap
-gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap'
 
 gem 'octicons'
 
