@@ -1,12 +1,15 @@
 %h1
-    Editar
-    =@curso.nome
+  Editar
+  =@curso.nome
 =form_for (@curso) do |f|
+  %p
     =f.label :nome
+    %br
     =f.text_field :nome
-    %br
+  %p
     =f.label "Descrição"
-    =f.text_area :desc
     %br
+    =f.text_area :desc
+  %p
     =f.submit "Salvar"
   

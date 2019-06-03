@@ -1,13 +1,16 @@
 %h1
-    Criar nova disciplina para o curso
-    =@curso.nome
+  Editar disciplina do curso
+  =@curso.nome
 = form_for (@disciplina) do |f|
+  %p
     =f.label :nome
+    %br
     =f.text_field :nome
-    %br
+  %p
     =f.label "Descrição"
-    =f.text_area :desc
     %br
+    =f.text_area :desc
+  %p
     =f.submit "Salvar"
       
     
