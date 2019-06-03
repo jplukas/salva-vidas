@@ -1,6 +1,7 @@
 class DisciplinasController < ApplicationController
 
   before_action :require_admin_privileges, only: [:new, :edit, :create, :update, :destroy]
+  before_action :authenticate_user!, only: [:bookmark]
 
   def index
     @curso= Curso.find(params[:curso_id])
@@ -47,6 +48,18 @@ class DisciplinasController < ApplicationController
     url = url_for(@disciplina.curso)
     @disciplina.destroy
     redirect_to url
+  end
+  
+  def bookmark
+    query = {seguidor_id: current_user.id, seguido_id: params[:id]}
+    existente = RelUserDisciplina.find_by(query)
+    if existente != nil
+        existente.destroy!
+        render json: {bookmarked: false}
+    else
+        RelUserDisciplina.create!(query)
+        render json: {bookmarked: true}
+    end
   end
 
   private

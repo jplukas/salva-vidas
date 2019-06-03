@@ -30,4 +30,5 @@ class User < ApplicationRecord
   def feed
     materiais_seguidos.order(created_at: :desc)
   end
+  
 end

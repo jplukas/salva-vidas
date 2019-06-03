@@ -4,10 +4,6 @@
         =material.user.nome 
         =time_ago_in_words material.created_at
         ago
-    - if user_signed_in?
-        .fav-button
-            %a{:id => "materials/#{material.id}/bookmark"}(href="javascript:void(0);")
-                =octicon "bookmark", height: 26
     %h2=link_to material.nome, material
     %p.material-conteudo= material.conteudo
     %p.material-dados

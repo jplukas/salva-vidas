@@ -1,5 +1,12 @@
 .disciplina-feed
     %h2=link_to disciplina.nome, disciplina
+    - if user_signed_in?
+        .fav-button
+            %a{:id => "disciplina/#{disciplina.id}/bookmark", data: {id: disciplina.id}}(href="javascript:void(0);")
+                - if current_user.seguindo?(disciplina)
+                    = image_tag 'favorito-ativo.png'
+                - else
+                    = image_tag 'favorito-inativo.png'
     %p.disciplina-desc= disciplina.desc
     %p.disciplina-dados
         ="#{pluralize(disciplina.seguidores.count, 'usuário')} seguindo"

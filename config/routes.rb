@@ -18,5 +18,6 @@ Rails.application.routes.draw do
   post '/voto-comentario-up', controller: :voto_comentario, action: :up
   post '/voto-comentario-down', controller: :voto_comentario, action: :down
   get '/busca', controller: :busca, action: :buscar
+  post '/favoritar', controller: :disciplinas, action: :bookmark 
   
 end
