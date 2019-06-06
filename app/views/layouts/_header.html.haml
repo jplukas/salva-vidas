@@ -2,7 +2,7 @@
   %nav.navbar.navbar-expand-md.navbar-dark.fixed-top.bg-dark
     = link_to "SalvaVidas", root_path, class: "navbar-brand"
     %ul.navbar-nav.mr-auto
-      %li.nav-item= link_to "Home", root_path, class: "nav-link"
+      %li.nav-item= link_to "POSTAR MATERIAL", '/novo-material', class: "nav-link"
       %li.nav-item= link_to "Cursos", cursos_path, class: "nav-link"
     = form_with class: "form-inline", url: busca_path, method: :get, local: true do |f|
       = f.text_field :q, class: "form-control mr-sm-2 busca-textbox", placeholder: 'Busque materiais, disciplinas, cursos...'

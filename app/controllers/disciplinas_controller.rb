@@ -6,6 +6,10 @@ class DisciplinasController < ApplicationController
   def index
     @curso= Curso.find(params[:curso_id])
     @disciplinas = @curso.disciplinas
+    respond_to do |format|
+      format.html
+      format.json { render json: @disciplinas.map{|d| {nome: d.nome, id: d.id}} }
+    end
   end
 
   def new

@@ -11,6 +11,12 @@ class MaterialsController < ApplicationController
     @disciplina = Disciplina.find(params[:disciplina_id])
     @material = @disciplina.materials.build
   end
+  
+  def new2
+    @cursos = Curso.order(:nome)
+    @disciplina = Disciplina.first
+    @material = @disciplina.materials.build
+  end
 
   def show
     @material = Material.find(params[:id])
@@ -26,7 +32,7 @@ class MaterialsController < ApplicationController
 
   def create
     @material = Material.new(material_params)
-    @material.disciplina_id = params[:disciplina_id]
+    @material.disciplina_id ||= params[:disciplina_id]
     @material.user_id = current_user.id
     if @material.save
       flash[:success] = "Cadastro realizado!"
@@ -43,7 +49,7 @@ class MaterialsController < ApplicationController
     else
       flash[:danger] = "A ação não pôde ser realizada."
     end
-    redirect_to new_disciplina_material_path(@material.disciplina)
+    redirect_to material_path(@material)
   end
 
   def destroy
@@ -55,6 +61,6 @@ class MaterialsController < ApplicationController
 
   private
   def material_params
-    params.require(:material).permit(:nome, :conteudo)
+    params.require(:material).permit(:nome, :conteudo, :link, :disciplina_id)
   end
 end

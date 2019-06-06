@@ -1,0 +1,27 @@
+%h1
+  Criar novo material 
+= form_for [@material.disciplina, @material] do |f|
+  %p.selecao_curso
+    =f.label :curso
+    %br
+    = select_tag :curso_id, options_for_select(@cursos.map{|c| [c.nome, c.id]})
+  %p.selecao_disciplina
+    =f.label :disciplina
+    %br
+    =f.select :disciplina_id, options_for_select(@disciplina.curso.disciplinas.map{|d| [d.nome, d.id]})
+  %p
+    =f.label :nome
+    %br
+    =f.text_field :nome
+  %p
+    =f.label "Conteúdo"
+    %br
+    =f.text_area :conteudo
+  %p
+    =f.label :link
+    %br
+    =f.text_field :link
+  %p
+    =f.submit "Salvar"
+      
+    

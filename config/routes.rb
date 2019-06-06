@@ -7,7 +7,6 @@ Rails.application.routes.draw do
       resources :disciplinas do
         resources :materials do
           resources :comentarios, only: [:create, :destroy]
-          resources :votos, only: [:create, :update, :destroy]
         end
       end
     end
@@ -19,5 +18,6 @@ Rails.application.routes.draw do
   post '/voto-comentario-down', controller: :voto_comentario, action: :down
   get '/busca', controller: :busca, action: :buscar
   post '/favoritar', controller: :disciplinas, action: :bookmark 
+  get '/novo-material', controller: :materials, action: :new2
   
 end

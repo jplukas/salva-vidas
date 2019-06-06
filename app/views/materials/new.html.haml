@@ -1,13 +1,20 @@
 %h1
-    Criar novo material para a disciplina
-    =@disciplina.nome
+  Criar novo material para a disciplina
+  =@disciplina.nome
 = form_for ([@material.disciplina, @material]) do |f|
+  %p
     =f.label :nome
+    %br
     =f.text_field :nome
-    %br
+  %p
     =f.label "Conteúdo"
-    =f.text_area :conteudo
     %br
+    =f.text_area :conteudo
+  %p
+    =f.label :link
+    %br
+    =f.text_field :link
+  %p
     =f.submit "Salvar"
       
     
