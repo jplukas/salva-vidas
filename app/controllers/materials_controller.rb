@@ -4,14 +4,24 @@ class MaterialsController < ApplicationController
 
   def index
     @disciplina = Disciplina.find(params[:disciplina_id])
-    @materials = @disciplina.materials
+    @materials = Array.new
+    score = Voto.group(:material_id).sum(:sinal)
+    unrated = @disciplina.materials.pluck(:id) - score.keys
+    unrated.each { |x| score[x] = 0 }
+    score = score.sort_by {|k, v| v}.reverse.to_h
+    score.each do |id, s|
+      mat = Material.find(id)
+      if mat.disciplina_id == params[:disciplina_id].to_i
+        @materials.push(mat)
+      end
+    end
   end
 
   def new
     @disciplina = Disciplina.find(params[:disciplina_id])
     @material = @disciplina.materials.build
   end
-  
+
   def new2
     @cursos = Curso.order(:nome)
     @disciplina = Disciplina.first
@@ -34,6 +44,9 @@ class MaterialsController < ApplicationController
     @material = Material.new(material_params)
     @material.disciplina_id ||= params[:disciplina_id]
     @material.user_id = current_user.id
+    if not @material.link.start_with?("http://", "https://")
+      @material.link = "http://#{@material.link}"
+    end
     if @material.save
       flash[:success] = "Cadastro realizado!"
     else
