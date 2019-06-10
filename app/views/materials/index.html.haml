@@ -1,9 +1,12 @@
-.center.jumbotron
-    %h1
-        Materiais cadastrados da disciplina
-        =@disciplina.nome 
-        do curso 
-        =@disciplina.curso.nome
+%h1
+    Materiais de
+    =@disciplina.nome
+    do curso
+    =@disciplina.curso.nome
+%p
+    = link_to 'Postar material', new_disciplina_material_path(@disciplina)
 .row
     .col-sm-8.materiais
         =render @materials
+    .col-sm.disciplina
+        =render @disciplina
