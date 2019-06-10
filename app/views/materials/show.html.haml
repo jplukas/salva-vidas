@@ -8,7 +8,7 @@
                     =time_ago_in_words @material.created_at
                     ago
                 %h2= @material.nome
-                %p=@material.conteudo
+                =formata_conteudo(@material.conteudo)
                 %p= link_to @material.link, @material.link
                 .material-bottom
                     =render 'interacao', material: @material

@@ -5,6 +5,6 @@
         =time_ago_in_words material.created_at
         ago
     %h2=link_to material.nome, material
-    %p.material-conteudo= material.conteudo
+    =formata_conteudo(material.conteudo)
     %p.material-dados
         =render 'materials/interacao', material: material

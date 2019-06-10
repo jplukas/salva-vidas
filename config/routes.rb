@@ -11,6 +11,8 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  get '/perfil', to: 'static_pages#perfil'
   
   post '/voto-up', controller: :votos, action: :up
   post '/voto-down', controller: :votos, action: :down
