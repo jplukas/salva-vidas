@@ -1,6 +1,7 @@
 class DisciplinasController < ApplicationController
 
-  before_action :require_admin_privileges, only: [:new, :edit, :create, :update, :destroy]
+  before_action :require_admin_privileges, 
+      only: [:new, :edit, :create, :update, :destroy, :upload_form, :upload]
   before_action :authenticate_user!, only: [:bookmark]
 
   def index
@@ -64,6 +65,16 @@ class DisciplinasController < ApplicationController
         RelUserDisciplina.create!(query)
         render json: {bookmarked: true}
     end
+  end
+  
+  def upload_form
+    @disciplina = Disciplina.find(params[:id])
+  end
+  
+  def upload
+    @disciplina = Disciplina.find(params[:id])
+    @disciplina.figura.attach(params[:disciplina][:file])
+    redirect_to curso_disciplinas_path(@disciplina.curso)
   end
 
   private

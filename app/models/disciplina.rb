@@ -4,6 +4,8 @@ class Disciplina < ApplicationRecord
 
   has_many :rel_user_disciplinas, foreign_key: "seguido_id", dependent: :destroy
   has_many :seguidores, through: :rel_user_disciplinas, source: :seguidor
+  
+  has_one_attached :figura
 
   validates :nome, presence: true, uniqueness: true, length: {maximum: 40}
   validates :desc, presence: true

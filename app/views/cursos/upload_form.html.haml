@@ -1,0 +1,7 @@
+%h1
+  Selecionar figura para o curso
+  = @curso.nome
+
+= form_with model: @curso, url: figura_curso_path(@curso), local: true do |f|
+  = f.file_field :file
+  = f.submit 'Upload'

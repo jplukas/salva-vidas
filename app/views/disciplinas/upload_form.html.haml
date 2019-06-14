@@ -1,0 +1,7 @@
+%h1
+  Selecionar figura para a disciplina
+  = @disciplina.nome
+
+= form_with model: @disciplina, url: figura_disciplina_path(@disciplina), local: true do |f|
+  = f.file_field :file
+  = f.submit 'Upload'

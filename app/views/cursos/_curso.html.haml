@@ -1,4 +1,6 @@
 .curso-feed
+    - if curso.figura.attachment
+        .figura_anexo= image_tag rails_blob_path(curso.figura, only_path: true)
     %h2=link_to curso.nome, curso
     %p.curso-desc= curso.desc
     %p.curso-dados
@@ -11,3 +13,5 @@
         %p
             = link_to 'Editar', edit_curso_path(curso)
             = link_to 'Excluir', curso_path(curso), data: {:confirm => 'Tem certeza?'}, method: :delete
+            = link_to 'Figura', figura_curso_path(curso)
+    .clearfix

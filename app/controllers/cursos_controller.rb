@@ -1,6 +1,7 @@
 class CursosController < ApplicationController
 
-  before_action :require_admin_privileges, only: [:new, :edit, :create, :update, :destroy]
+  before_action :require_admin_privileges, 
+      only: [:new, :edit, :create, :update, :destroy, :upload_form, :upload]
 
   def index
     @cursos = Curso.all
@@ -43,6 +44,16 @@ class CursosController < ApplicationController
     @curso = Curso.find(params[:id])
     @curso.destroy
     redirect_to '/cursos'
+  end
+  
+  def upload_form
+    @curso = Curso.find(params[:id])
+  end
+  
+  def upload
+    @curso = Curso.find(params[:id])
+    @curso.figura.attach(params[:curso][:file])
+    redirect_to cursos_path
   end
 
   private

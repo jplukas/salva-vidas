@@ -1,4 +1,6 @@
 .disciplina-feed
+    - if disciplina.figura.attachment
+        .figura_anexo= image_tag rails_blob_path(disciplina.figura, only_path: true)
     %h2=link_to disciplina.nome, disciplina
     - if user_signed_in?
         .fav-button
@@ -16,3 +18,5 @@
         %p
             = link_to 'Editar', edit_disciplina_path(disciplina)
             = link_to 'Excluir', disciplina_path(disciplina), data: {:confirm => 'Tem certeza?'}, method: :delete
+            = link_to 'Figura', figura_disciplina_path(disciplina)
+    .clearfix
