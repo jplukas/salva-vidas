@@ -2,7 +2,11 @@
     %h2=link_to curso.nome, curso
     %p.curso-desc= curso.desc
     %p.curso-dados
-        x discplinas | x posts | x usuarios interagindo
+        = curso.disciplinas.count 
+        discplinas 
+        | 
+        = curso.materials.count
+        posts 
     - if admin_signed_in?
         %p
             = link_to 'Editar', edit_curso_path(curso)
