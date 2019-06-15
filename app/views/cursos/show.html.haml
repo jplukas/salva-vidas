@@ -1,10 +1,10 @@
 %h1 
     Disciplinas do curso
     = @curso.nome
+    -# - if admin_signed_in?
+    -#         %p= link_to 'Nova disciplina', new_curso_disciplina_path(@curso)
 .row
     .col-sm-8.disciplinas
-        - if admin_signed_in?
-            %p= link_to 'Nova disciplina', new_curso_disciplina_path(@curso)
         =render @disciplinas
-    .col-sm.curso
+    .col-sm-4.curso
         =render @curso

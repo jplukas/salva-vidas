@@ -5,22 +5,34 @@
 .materiais{
     // border: 1px solid $gray-lighter;
 }
-
+.material-pais{
+    color: black;
+    a{
+        color:black;
+    }
+    font-weight: bold;
+}
 .material-feed{
     border: 1px solid gray;
-    margin: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
     position: relative;
     padding: 10px;
     background-color: white;
     border-radius: 6px;
-
-    h2{
+    font-size: 14px;
+    h1, h2, h3, h4, h5, h6{
         // border: 1px solid $gray-lighter;
         margin-top: 0px;
+        font-size: 20px;
+        font-weight: 500;
         a{
             color: black;
+
         }
     }
+
 
     .bookmark-saved{
         background-color: gold;

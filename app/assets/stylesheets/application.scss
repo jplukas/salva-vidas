@@ -9,14 +9,12 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
+ *=require_tree
+ *=require_self
+ *= require material_icons
  */
  @import "bootstrap";
- @import "comentarios.scss";
- @import "cursos.scss";
- @import "disciplinas.scss";
- @import "materials.scss";
- @import "static_pages.scss";
+
 
  $gray-medium-light: #eaeaea;
 
@@ -40,11 +38,11 @@ body {
     }
 }
 
+.interacao{
+    margin: 0px;
+}
 .vote{
   border: 1px solid black;
-  position: absolute; 
-  bottom: 2px;
-  right: 2px;
   padding: 0px;
   border-radius: 6px;
 

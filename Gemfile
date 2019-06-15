@@ -76,8 +76,6 @@ gem 'jquery-rails'
 # Use bootstrap
 gem 'bootstrap'
 
-gem 'octicons'
-
-gem 'octicons_helper'
+gem 'material_icons'
 
 gem 'seed_dump'

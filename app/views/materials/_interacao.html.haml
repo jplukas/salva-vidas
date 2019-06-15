@@ -1,6 +1,8 @@
-%span.voto_material{data: {pontos_id: material.id}}= pluralize(material.votos.sum(:sinal), 'ponto')
-|
-= pluralize(material.comentarios.count, 'comentário')
+
+%span.voto_material.mr-auto{data: {pontos_id: material.id}}
+    = pluralize(material.votos.sum(:sinal), 'ponto')
+    |
+    = pluralize(material.comentarios.count, 'comentário')
 
 -if user_signed_in?
     - meu = material.votos.find_by(user_id: current_user.id)
@@ -8,20 +10,15 @@
         - sinal = 0
     - else
         - sinal = meu.sinal
-    %span.meu_voto{data: {pontos_id: material.id}}
-        - if sinal == +1
-            Gostei
-        - elsif sinal == -1
-            Não gostei
     .vote
         %a.up{id: "material/#{material.id}/upvote", data: {id: material.id}}(href="javascript:void(0);")
             - if sinal == +1
-                = image_tag 'up-ativo.png'
+                = material_icon.thumb_up_alt
             - else
-                = image_tag 'up-inativo.png'
+                = material_icon.thumb_up_alt.css_class("md-dark")
         %a.down{id: "material/#{material.id}/downvote", data: {id: material.id}}(href="javascript:void(0);")
             - if sinal == -1
-                = image_tag 'down-ativo.png'
+                = material_icon.thumb_down_alt
             - else
-                = image_tag 'down-inativo.png'
+                = material_icon.thumb_down_alt.css_class("md-dark")
 
