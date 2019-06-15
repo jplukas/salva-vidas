@@ -18,21 +18,6 @@ module AutenticacaoHelpers
         admin
     end
 
-    def login(user)
-        puts user_session_path
-        post user_session_path, params: {user: {email: user.email, password: user.password}}
-        puts 'LOGIN'
-        puts response.body
-        expect(response.status).to eq(200)
-    end
-    
-    def cria_e_loga
-        user = cria_usuario
-        login user
-        user
-    end
-
-
 end
 
 RSpec.configure do |c|
