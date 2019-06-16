@@ -9,7 +9,7 @@ RSpec.describe CursosController, type: [:request, :controller] do
         @dados = {nome: 'teste', desc: 'teste'}
     end
     
-    it 'Mostra as disciplinas cadastrados' do
+    it 'Mostra as disciplinas cadastradas' do
         get curso_path(1)
         expect(response.body).to include("Disc1-c1")
         expect(response.body).to include("Disc2-c1")

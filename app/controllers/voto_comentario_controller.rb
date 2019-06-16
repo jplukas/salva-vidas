@@ -1,5 +1,7 @@
 class VotoComentarioController < ApplicationController
 
+    before_action :authenticate_user!
+
     def up
         novo_voto = cria_ou_altera(params[:id], +1)
         render json: {voto: novo_voto, pontos: pontuacao(params[:id])}
