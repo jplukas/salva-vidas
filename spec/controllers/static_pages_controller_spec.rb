@@ -4,9 +4,6 @@ require './spec/support/cenarios.rb'
 
 RSpec.describe StaticPagesController, type: [:request, :controller] do
 
-    render_views
-    include Devise::Test::IntegrationHelpers
-
     before :each do
         cria_cursos_e_disciplinas
     end

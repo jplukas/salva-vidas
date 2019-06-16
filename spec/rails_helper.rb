@@ -58,4 +58,11 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  # Devise integration helpers
+  config.include Devise::Test::IntegrationHelpers
+  
+  # Render views by default
+  config.render_views
+  
 end
