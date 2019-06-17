@@ -82,6 +82,12 @@ describe('Interface de like e dislike (estado atual obtido do servidor)', functi
         mockaUrl({pontos: 2, voto: 0});
         cliqueLike(URL_TESTE_LIKE, 1, interf);
         expect(interf.pontos.text()).toBe('2 pontos');
+        mockaUrl({pontos: -1, voto: 0});
+        cliqueLike(URL_TESTE_LIKE, 1, interf);
+        expect(interf.pontos.text()).toBe('-1 ponto');
+        mockaUrl({pontos: -2, voto: 0});
+        cliqueLike(URL_TESTE_LIKE, 1, interf);
+        expect(interf.pontos.text()).toBe('-2 pontos');
     });
     
 });
