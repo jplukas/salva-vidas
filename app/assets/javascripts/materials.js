@@ -27,7 +27,6 @@ $(document).ready(function() {
         );
     });
 
-
     $(document).on('click', 'a.down', function() {
         var id = $(this).data('id');
         $.post(
