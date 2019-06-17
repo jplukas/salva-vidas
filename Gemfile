@@ -81,3 +81,7 @@ gem 'octicons'
 gem 'octicons_helper'
 
 gem 'seed_dump'
+
+group :test, :development do
+  gem 'jasmine-rails'
+end

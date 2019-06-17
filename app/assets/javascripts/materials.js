@@ -1,3 +1,19 @@
+function atualizaPorAjax(combo_disciplina, id_curso) {
+    $.get(
+        '/cursos/' + id_curso + '/disciplinas.json',
+        function(disciplinas) {
+            $('option', combo_disciplina).remove()
+            for (d in disciplinas) {
+                var option = document.createElement('option');
+                option.value = parseInt(disciplinas[d].id);
+                option.textContent = disciplinas[d].nome;  // Faz o escape :)
+                combo_disciplina.append(option);
+            }
+        }
+    );
+}
+
+
 $(document).ready(function() {
 
     $(document).on('click', 'a.up', function() {
@@ -25,18 +41,7 @@ $(document).ready(function() {
     
     $(document).on('change', 'p.selecao_curso select', function() {
         var id_curso = parseInt($(this).val());
-        $.get(
-            'http://localhost:3000/cursos/' + id_curso + '/disciplinas.json',
-            function(cursos) {
-                $('#material_disciplina_id option').remove()
-                for (c in cursos) {
-                    var option = document.createElement('option');
-                    option.value = parseInt(cursos[c].id);
-                    option.textContent = cursos[c].nome;  // Faz o escape :)
-                    $('#material_disciplina_id').append(option);
-                }
-            }
-        );
+        atualizaPorAjax($('#material_disciplina_id'), id_curso);
     });
 
 });
