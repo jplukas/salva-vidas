@@ -1,4 +1,4 @@
-describe('Interface de like e dislike (estado atual obtido do servidor)', function() {
+describe('Interface de like e dislike muda conforme estado atual (obtido do servidor)', function() {
 
     var URL_TESTE_LIKE = '/url-de-likes';
 
@@ -44,7 +44,7 @@ describe('Interface de like e dislike (estado atual obtido do servidor)', functi
 
     it('Dá dislike quando não tem voto', testaDislike);
 
-    it('Tira like quando já tem', function() {
+    it('Tira like e dislike', function() {
         mockaUrl({pontos: 1, voto: 0});
         cliqueLike(URL_TESTE_LIKE, 1, interf);
         expect(interf.pontos.text()).toBe('1 ponto');
@@ -53,15 +53,6 @@ describe('Interface de like e dislike (estado atual obtido do servidor)', functi
         expect($('img', interf.down).attr('src')).toContain('down-inativo.png');
     });
 
-    it('Tira dislike quando já tem', function() {
-        mockaUrl({pontos: 1, voto: 0});
-        cliqueLike(URL_TESTE_LIKE, 1, interf);
-        expect(interf.pontos.text()).toBe('1 ponto');
-        expect(interf.meu_voto.text()).toBe('');
-        expect($('img', interf.up).attr('src')).toContain('up-inativo.png');
-        expect($('img', interf.down).attr('src')).toContain('down-inativo.png');
-    });
-    
     it('Troca o like para dislike', function() {
         testaLike();
         testaDislike();
