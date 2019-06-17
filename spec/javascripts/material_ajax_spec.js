@@ -53,5 +53,5 @@ describe('Postagem de material', function() {
         expect(disciplina_combo.html()).toContain('&lt;script&gt;');
         expect(disciplina_combo.html()).toContain('&lt;/script&gt;');
     });
-
+    
 });

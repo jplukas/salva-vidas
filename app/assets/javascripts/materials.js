@@ -26,7 +26,6 @@ function interfaceMaterial(id) {
 }
 
 function atualiza(interf, data) {
-    console.log(data);
     interf.pontos.text(data.pontos + (Math.abs(data.pontos) > 1 ? ' pontos' : ' ponto'));
     interf.meu_voto.text(data.voto == +1 ? 'Gostei' : (data.voto == -1 ? 'Não gostei' : ''));
     interf.up.html('<img src="/assets/' + (data.voto == +1 ? 'up-ativo' : 'up-inativo') + '.png">');
