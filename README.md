@@ -14,9 +14,13 @@ bin/rails s
 
 Para rodar os testes:
 
+Ruby:
+
 ```
 bin/rake
 ```
+
+JavaScript: acesse a URL `/specs`
 
 ## Modelos
 
