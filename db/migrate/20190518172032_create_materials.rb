@@ -8,6 +8,6 @@ class CreateMaterials < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
-    add_index :materials, [:nome, :disciplina, :user]
+    add_index :materials, [:nome, :disciplina_id, :user_id]
   end
 end
