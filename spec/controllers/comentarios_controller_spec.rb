@@ -91,6 +91,18 @@ RSpec.describe ComentariosController, type: [:request, :controller] do
         expect(consulta.count).to eq(0)
     end
     
+    it 'Mostra link para exclusão de todos os comentários para o admin' do
+        usu1 = cria_usuario('usu1@usuario.com')
+        usu2 = cria_usuario('usu2@usuario.com')
+        Comentario.create! user: usu1, material: @material, conteudo: 'com1'
+        Comentario.create! user: usu2, material: @material, conteudo: 'com2'
+        Comentario.create! user: usu1, material: @material, conteudo: 'com3'
+        Comentario.create! user: usu2, material: @material, conteudo: 'com4'
+        sign_in cria_admin
+        get material_path(@material)
+        expect(response.body).to match(/com1(.*)<a(.*)>excluir<\/a>(.*)com2(.*)<a(.*)>excluir<\/a>(.*)com3(.*)<a(.*)>excluir<\/a>(.*)com4(.*)<a(.*)>excluir<\/a>(.*)/m)
+    end
+    
     it 'Não deixa usuário não logado dar like no comentário' do
         cria_comentario
         post voto_comentario_up_path, params: {id: 1}

@@ -31,4 +31,5 @@
                     = image_tag 'down-ativo.png'
                 - else
                     = image_tag 'down-inativo.png'
-    =link_to 'excluir', comentario, method: :delete, data: { confirm: "Tem certeza?" } if current_user == comentario.user
+    - if admin_signed_in? or current_user == comentario.user
+        = link_to 'excluir', comentario, method: :delete, data: { confirm: "Tem certeza?" }
