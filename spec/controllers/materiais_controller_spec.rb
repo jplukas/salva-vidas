@@ -53,7 +53,7 @@ RSpec.describe MaterialsController, type: [:request, :controller] do
         expect(mat.votos.sum(:sinal)).to eq(-1)
     end
     
-    it '2 likes seguidos cancela' do
+    it '2 likes seguidos no material cancela' do
         cria_material 'exemplo', cria_usuario, Disciplina.find(1)
         sign_in cria_usuario('outro@user.com')
         post voto_up_path, params: {id: 1}
@@ -62,7 +62,7 @@ RSpec.describe MaterialsController, type: [:request, :controller] do
         expect(mat.votos.sum(:sinal)).to eq(0)
     end
     
-    it '2 dislikes seguidos cancela' do
+    it '2 dislikes seguidos no material cancela' do
         cria_material 'exemplo', cria_usuario, Disciplina.find(1)
         sign_in cria_usuario('outro@user.com')
         post voto_down_path, params: {id: 1}
@@ -71,7 +71,7 @@ RSpec.describe MaterialsController, type: [:request, :controller] do
         expect(mat.votos.sum(:sinal)).to eq(0)
     end
     
-    it 'Troca de like para dislike' do
+    it 'Troca de like para dislike no material' do
         cria_material 'exemplo', cria_usuario, Disciplina.find(1)
         sign_in cria_usuario('outro@user.com')
         post voto_up_path, params: {id: 1}
@@ -80,7 +80,7 @@ RSpec.describe MaterialsController, type: [:request, :controller] do
         expect(mat.votos.sum(:sinal)).to eq(-1)
     end
     
-    it 'Troca de dislike para like' do
+    it 'Troca de dislike para like no material' do
         cria_material 'exemplo', cria_usuario, Disciplina.find(1)
         sign_in cria_usuario('outro@user.com')
         post voto_down_path, params: {id: 1}
