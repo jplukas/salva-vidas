@@ -1,6 +1,21 @@
 describe('Interface de like e dislike muda conforme estado atual (obtido do servidor)', function() {
 
     var URL_TESTE_LIKE = '/url-de-likes';
+    var interf;  // Simula a interface da página
+    
+    beforeEach(function() {
+        interf = {
+            pontos: $('<span></span>'),
+            meu_voto: $('<span></span>'),
+            up: $('<a href="#"></a>'),
+            down: $('<a href="#"></a>')
+        }
+        jasmine.Ajax.install();
+    });
+    
+    afterEach(function() {
+        jasmine.Ajax.uninstall();
+    });
 
     function mockaUrl(resposta) {
         jasmine.Ajax.stubRequest(URL_TESTE_LIKE).andReturn({responseJSON: resposta});
@@ -24,22 +39,6 @@ describe('Interface de like e dislike muda conforme estado atual (obtido do serv
         expect($('img', interf.down).attr('src')).toContain('down-ativo.png');
     }
     
-    var interf;
-    
-    beforeEach(function() {
-        interf = {
-            pontos: $('<div></div>'),
-            meu_voto: $('<div></div>'),
-            up: $('<div></div>'),
-            down: $('<div></div>')
-        }
-        jasmine.Ajax.install();
-    });
-    
-    afterEach(function() {
-        jasmine.Ajax.uninstall();
-    });
-
     it('Dá like quando não tem voto', testaLike);
 
     it('Dá dislike quando não tem voto', testaDislike);
