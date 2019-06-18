@@ -90,5 +90,3 @@ gem 'seed_dump'
 group :test, :development do
   gem 'jasmine-rails'
 end
-
-gem 'activestorage-database-service', github: 'TitovDigital/activestorage-database-service'
