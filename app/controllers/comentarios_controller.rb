@@ -17,7 +17,7 @@ class ComentariosController < ApplicationController
   def destroy
     @comentario = Comentario.find(params[:id])
     url = url_for(@comentario.material)
-    @comentario.destroy
+    @comentario.destroy if admin_signed_in? or @comentario.user_id == current_user.id
     redirect_to url
   end
 
