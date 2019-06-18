@@ -11,7 +11,6 @@ group :development, :test do
 end
 group :production do
     gem 'pg'
-    gem 'activestorage-database-service', github: 'TitovDigital/activestorage-database-service'
 end
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
@@ -91,3 +90,5 @@ gem 'seed_dump'
 group :test, :development do
   gem 'jasmine-rails'
 end
+
+gem 'activestorage-database-service', github: 'TitovDigital/activestorage-database-service'
