@@ -1,6 +1,6 @@
 .disciplina-feed
     - if disciplina.figura.attachment
-        .figura_anexo= image_tag rails_blob_path(disciplina.figura, only_path: true)
+        .figura_anexo= image_tag url_for(disciplina.figura)
     %h2=link_to disciplina.nome, disciplina
     - if user_signed_in?
         .fav-button
