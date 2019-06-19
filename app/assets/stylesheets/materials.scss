@@ -29,28 +29,20 @@
         font-weight: 500;
         a{
             color: black;
-
         }
-    }
-
-
-    .bookmark-saved{
-        background-color: gold;
-    }
-    
-    .octicon{
-        margin: 0px;
     }
 }
 
 .material-dados{
-    color: darkgray;
-    font-size: 12px;
-    margin-bottom: 0px;
-    margin-top: 0px;
+    color: darkgray!important;
+    font-size: 12px!important;
+    margin-bottom: 0px!important;
+    margin-top: 0px!important;
 }
+
+
 .material-show{
-    border: 1px solid gray;
+    border: 1px solid darkgray;
     padding: 10px;
     background-color: white;
     border-radius: 6px;
