@@ -9,14 +9,12 @@
  * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
- *
+ *=require_tree
+ *=require_self
+ *= require material_icons
  */
  @import "bootstrap";
- @import "comentarios.scss";
- @import "cursos.scss";
- @import "disciplinas.scss";
- @import "materials.scss";
- @import "static_pages.scss";
+
 
  $gray-medium-light: #eaeaea;
 
@@ -40,20 +38,50 @@ body {
     }
 }
 
+
+.comentarios-bottom-bar{
+    //  display: inline-flex; 
+}
+
+.interacao{
+    margin: 0px;
+    font-weight: 700;
+    line-height: 18px;
+    vertical-align: middle !important;
+    a{
+        text-decoration: none;
+        color: gray;
+        display: inline-flex !important;
+        height: 18px;
+    }
+    div{
+        display: inline-flex !important;
+        height: 18px !important;
+    } 
+}
+
+.bottom-bar-item{
+    // margin-right: 2px;
+    padding-right: 2px;
+    padding-left: 2px;
+    border-radius: 2px;
+    color: gray;
+    &:hover{
+        background-color: lightgray;
+    }
+}
+
 .vote{
-  border: 1px solid black;
-  position: absolute; 
-  bottom: 2px;
-  right: 2px;
-  padding: 0px;
-  border-radius: 6px;
+//   border: 1px solid black;
+//   padding: 0px;
+//   border-radius: 6px;
 
   .up{
-     border-right: 1px solid black;
+    //  border-right: 1px solid black;
      float: left;
   }
   .down{
-     border-left: 1px solid black;
+    //  border-left: 1px solid black;
      float: right;
   }
 }
@@ -89,4 +117,36 @@ body {
 .figura_anexo img {
     max-width: 200px;
     float: right;
+}
+.material-dados-top{
+    margin: 0px;
+}
+
+.vote-down{
+    color: $danger;
+}
+
+.vote-up{
+    color: $primary
+}
+
+.content-box{
+    border: 1px solid gray;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+    position: relative;
+    padding: 10px;
+    background-color: white;
+    border-radius: 6px;
+    font-size: 14px;
+    h1, h2, h3, h4, h5, h6{
+        // border: 1px solid $gray-lighter;
+        margin-top: 0px;
+        font-size: 20px;
+        font-weight: 500;
+        a{
+            color: black;
+        }
+    }
 }

@@ -1,0 +1,9 @@
+Tela de login -> devise/sessions/new
+
+Static_pages: 
+    - home -> static_pages/home
+    - busca (resultados da busca) -> static_pages/busca
+    - meus cursos (deixar para depois, não tenho certeza se vou implementar) -> static_pages/meus_cursos
+    - minhas disciplinas -> static_pages/minhas_disciplinas
+    - preferências/perfil -> static_pages/perfil
+

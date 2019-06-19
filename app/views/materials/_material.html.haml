@@ -1,10 +1,22 @@
-.material-feed
-    %p.material-dados.material-dados-top
-        Enviado por: 
-        =material.user.nome 
-        =time_ago_in_words material.created_at
-        ago
-    %h2=link_to material.nome, material
-    %p.material-conteudo= material.conteudo
-    %p.material-dados
+.content-box
+    .row.justify-content-start.material-dados.material-dados-top
+        .mr-auto
+            %p
+                %span.material-pais
+                    =link_to material.disciplina.curso.nome, material.disciplina.curso
+                    \/
+                    =link_to material.disciplina.nome, material.disciplina
+                \-Enviado por  
+                =material.user.nome 
+                =time_ago_in_words material.created_at
+                ago
+        .aval
+            %span
+                =pluralize(material.votos.sum(:sinal), 'Ponto')
+    .material-nome
+        %h3
+            =link_to material.nome, material
+    .material-conteudo
+        =formata_conteudo(material.conteudo)
+    .row.justify-content-start.material-dados.interacao
         =render 'materials/interacao', material: material

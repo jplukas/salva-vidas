@@ -1,6 +1,6 @@
 .row
-    .material-show.col-sm-8
-        .material
+    .col-sm-8
+        .content-box
             .material-content
                 %p.material-dados.material-dados-top
                     Enviado por: 
@@ -8,7 +8,7 @@
                     =time_ago_in_words @material.created_at
                     ago
                 %h2= @material.nome
-                %p=@material.conteudo
+                =formata_conteudo(@material.conteudo)
                 %p= link_to @material.link, @material.link
                 .material-bottom
                     =render 'interacao', material: @material
@@ -22,7 +22,7 @@
             -else
                 = link_to 'Faça login para comentar e votar', new_user_session_path
         
-        .comentarios
-            =render @comentarios
-    .col-sm
+            .comentarios#comentarios
+                =render @comentarios
+    .col-sm-4
         =render @material.disciplina
