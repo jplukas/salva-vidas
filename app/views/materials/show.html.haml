@@ -1,28 +1,6 @@
 .row
     .col-sm-8
-        .content-box
-            .material-content
-                %p.material-dados.material-dados-top
-                    Enviado por: 
-                    =@material.user.nome 
-                    =time_ago_in_words @material.created_at
-                    ago
-                %h2= @material.nome
-                =formata_conteudo(@material.conteudo)
-                %p= link_to @material.link, @material.link
-                .material-bottom
-                    =render 'interacao', material: @material
-            
-            %h5 Comentários:
-            -if user_signed_in?
-                =form_for(:comentario, url: material_comentarios_path(@material)) do |f|
-                    =f.text_area :conteudo
-                    %br
-                    =f.submit "Comentar", :class => "btn btn-primary btn-comment"
-            -else
-                = link_to 'Faça login para comentar e votar', new_user_session_path
-        
-            .comentarios#comentarios
-                =render @comentarios
+        =render @material
     .col-sm-4
-        =render @material.disciplina
+        .content-box
+            %h1 OPORA

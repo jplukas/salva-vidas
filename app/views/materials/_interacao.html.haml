@@ -1,42 +1,42 @@
-.interacao-esq.mr-auto
-    .bottom-bar-item.comentarios
-        %a{href: ("#{url_for material}#comentarios")}
-            =material_icon.forum.md_18
-            %span{data: {pontos_id: material.id}}
-                =pluralize(material.comentarios.count, 'Comentário')
-    -# .bottom-bar-item.aval
-    -#     =material_icon.thumbs_up_down.md_18
-    -#     %span
-    -#         =pluralize(material.votos.sum(:sinal), 'Ponto')
-    .bottom-bar-item.bookmark
-        %a(href="javascript:void(0);")
-            =material_icon.bookmark.md_18
-            %span
-                Bookmark
-    .bottom-bar-item.share
-        %a(href="javascript:void(0);")
-            =material_icon.share.md_18
-            %span
-                Share
-    
-.interacao-dir
-    -if user_signed_in?
-        - meu = material.votos.find_by(user_id: current_user.id)
-        - if meu == nil
-            - sinal = 0
-        - else
-            - sinal = meu.sinal
-        .vote
-            .bottom-bar-item
-                %a.up{id: "material/#{material.id}/upvote", data: {id: material.id}}(href="javascript:void(0);")
-                    - if sinal == +1
-                        = material_icon.thumb_up_alt.md_18.css_class("vote-up")
-                    - else
-                        = material_icon.thumb_up_alt.md_18
-            .bottom-bar-item
-                %a.down{id: "material/#{material.id}/downvote", data: {id: material.id}}(href="javascript:void(0);")
-                    - if sinal == -1
-                        = material_icon.thumb_down_alt.md_18.css_class("vote-down")
-                    - else
-                        = material_icon.thumb_down_alt.md_18
-
+.row.justify-content-start.interacao
+    .interacao-esq.mr-auto
+        .bottom-bar-item.comentarios
+            %a{href: ("#{url_for material}#comentarios")}
+                =material_icon.forum.md_18
+                %span{data: {pontos_id: material.id}}
+                    =pluralize(material.comentarios.count, 'Comentário')
+        -# .bottom-bar-item.aval
+        -#     =material_icon.thumbs_up_down.md_18
+        -#     %span
+        -#         =pluralize(material.votos.sum(:sinal), 'Ponto')
+        .bottom-bar-item.bookmark
+            %a(href="javascript:void(0);")
+                =material_icon.bookmark.md_18
+                %span
+                    Bookmark
+        .bottom-bar-item.share
+            %a(href="javascript:void(0);")
+                =material_icon.share.md_18
+                %span
+                    Share
+        
+    .interacao-dir
+        -if user_signed_in?
+            - meu = material.votos.find_by(user_id: current_user.id)
+            - if meu == nil
+                - sinal = 0
+            - else
+                - sinal = meu.sinal
+            .vote
+                .bottom-bar-item
+                    %a.up{id: "material/#{material.id}/upvote", data: {id: material.id}}(href="javascript:void(0);")
+                        - if sinal == +1
+                            = material_icon.thumb_up_alt.md_18.css_class("vote-up")
+                        - else
+                            = material_icon.thumb_up_alt.md_18
+                .bottom-bar-item
+                    %a.down{id: "material/#{material.id}/downvote", data: {id: material.id}}(href="javascript:void(0);")
+                        - if sinal == -1
+                            = material_icon.thumb_down_alt.md_18.css_class("vote-down")
+                        - else
+                            = material_icon.thumb_down_alt.md_18

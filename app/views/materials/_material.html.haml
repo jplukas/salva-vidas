@@ -18,5 +18,4 @@
             =link_to material.nome, material
     .material-conteudo
         =formata_conteudo(material.conteudo)
-    .row.justify-content-start.material-dados.interacao
-        =render 'materials/interacao', material: material
+    =render 'materials/interacao', material: material

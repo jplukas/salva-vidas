@@ -12,44 +12,12 @@
     }
     font-weight: bold;
 }
-.material-feed{
-    border: 1px solid gray;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    
-    position: relative;
-    padding: 10px;
-    background-color: white;
-    border-radius: 6px;
-    font-size: 14px;
-    h1, h2, h3, h4, h5, h6{
-        // border: 1px solid $gray-lighter;
-        margin-top: 0px;
-        font-size: 20px;
-        font-weight: 500;
-        a{
-            color: black;
-        }
-    }
-}
 
 .material-dados{
     color: darkgray!important;
     font-size: 12px!important;
     margin-bottom: 0px!important;
     margin-top: 0px!important;
-}
-
-
-.material-show{
-    border: 1px solid darkgray;
-    padding: 10px;
-    background-color: white;
-    border-radius: 6px;
-    margin-bottom: 10px;
-    h2{
-        margin-top: 0px;
-    }
 }
 
 .material{

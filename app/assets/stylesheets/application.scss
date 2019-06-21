@@ -46,24 +46,25 @@ body {
 .interacao{
     margin: 0px;
     font-weight: 700;
-    line-height: 18px;
+    // line-height: 18px;
     vertical-align: middle !important;
     a{
         text-decoration: none;
         color: gray;
         display: inline-flex !important;
-        height: 18px;
+        // height: 18px;
     }
     div{
         display: inline-flex !important;
-        height: 18px !important;
+        // height: 18px !important;
     } 
 }
 
 .bottom-bar-item{
     // margin-right: 2px;
-    padding-right: 2px;
-    padding-left: 2px;
+    // padding-right: 2px;
+    // padding-left: 2px;
+    padding: 2px;
     border-radius: 2px;
     color: gray;
     &:hover{
