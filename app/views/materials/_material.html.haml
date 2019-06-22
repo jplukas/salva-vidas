@@ -19,3 +19,4 @@
     .material-conteudo
         =formata_conteudo(material.conteudo)
     =render 'materials/interacao', material: material
+    = yield(:comentarios) if content_for?(:comentarios)

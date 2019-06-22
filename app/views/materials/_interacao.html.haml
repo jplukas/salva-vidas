@@ -5,10 +5,6 @@
                 =material_icon.forum.md_18
                 %span{data: {pontos_id: material.id}}
                     =pluralize(material.comentarios.count, 'Comentário')
-        -# .bottom-bar-item.aval
-        -#     =material_icon.thumbs_up_down.md_18
-        -#     %span
-        -#         =pluralize(material.votos.sum(:sinal), 'Ponto')
         .bottom-bar-item.bookmark
             %a(href="javascript:void(0);")
                 =material_icon.bookmark.md_18
