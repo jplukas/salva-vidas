@@ -1,7 +1,13 @@
--content_for :comentarios  do
+=content_for :comentarios  do
     .comentario-editor
-        
-    -render @comentarios
+        -if user_signed_in?
+            =form_for(:comentario, url: material_comentarios_path(@material)) do |f|
+                =f.text_area :conteudo
+                %br
+                =f.submit "Comentar", :class => "btn btn-primary btn-comment"
+        -else
+            = link_to 'Faça login para comentar e votar', new_user_session_path
+    =render @comentarios
 
 
 .row

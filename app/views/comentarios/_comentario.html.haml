@@ -1,35 +1,33 @@
 .comentario
-    %p.comentario-dados
-        =comentario.user.nome
-        @
-        =time_ago_in_words comentario.created_at
-        ago
-        |
+    .row.justify-content-start.material-dados.material-dados-top
+        .mr-auto
+            %p.comentario-dados
+                =comentario.user.nome
+                @
+                =time_ago_in_words comentario.created_at
+                ago
         %span.voto_comentario{data: {pontos_id: comentario.id}}= pluralize(comentario.voto_comentarios.sum(:sinal), 'ponto')
-        -if user_signed_in?
-            %span.meu_voto_com{data: {pontos_id: comentario.id}}
-                - meu = comentario.voto_comentarios.find_by(user_id: current_user.id)
-                - if meu == nil
-                    - sinal = 0
-                - else
-                    - sinal = meu.sinal
-                    - if meu.sinal == +1
-                        Gostei
-                    - else
-                        Não gostei
-    %p
-        =comentario.conteudo
-    -if user_signed_in?
-        .vote
-            %a.com_up{:id => "comentario/#{comentario.id}/upvote", data: {id: comentario.id}}(href="javascript:void(0);")
-                - if sinal == +1
-                    = image_tag 'up-ativo.png'
-                - else
-                    = image_tag 'up-inativo.png'
-            %a.com_down{:id => "comentario/#{comentario.id}/downvote", data: {id: comentario.id}}(href="javascript:void(0);")
-                - if sinal == -1
-                    = image_tag 'down-ativo.png'
-                - else
-                    = image_tag 'down-inativo.png'
-    - if admin_signed_in? or current_user == comentario.user
-        = link_to 'excluir', comentario, method: :delete, data: { confirm: "Tem certeza?" }
+    .comentario-conteudo
+        =formata_conteudo(comentario.conteudo)
+    .row.justify-content-start.interacao
+        .interacao-esq.mr-auto
+            .bottom-bar-item
+                - if admin_signed_in? or current_user == comentario.user
+                    = link_to 'Excluir', comentario, method: :delete, data: { confirm: "Tem certeza?" }
+        .interacao-dir
+            -if user_signed_in?
+                -meu_voto = comentario.voto_comentarios.find_by(user_id: current_user.id)
+                -meu_voto &&= meu_voto.sinal
+                .vote
+                    .bottom-bar-item
+                        %a.com_up{:id => "comentario/#{comentario.id}/upvote", data: {id: comentario.id}}(href="javascript:void(0);")
+                            - if meu_voto == +1
+                                = material_icon.thumb_up_alt.md_18.css_class("vote-up")
+                            - else
+                                = material_icon.thumb_up_alt.md_18
+                    .bottom-bar-item
+                        %a.com_down{:id => "comentario/#{comentario.id}/downvote", data: {id: comentario.id}}(href="javascript:void(0);")
+                            - if meu_voto == -1
+                                = material_icon.thumb_down_alt.md_18.css_class("vote-down")
+                            - else
+                                = material_icon.thumb_down_alt.md_18
