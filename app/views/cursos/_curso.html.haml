@@ -1,17 +1,20 @@
-.curso-feed
-    - if curso.figura.attachment
-        .figura_anexo= image_tag url_for(curso.figura)
-    %h2=link_to curso.nome, curso
-    %p.curso-desc= curso.desc
-    %p.curso-dados
-        = curso.disciplinas.count 
-        discplinas 
-        | 
-        = curso.materials.count
-        posts 
-    - if admin_signed_in?
-        %p
-            = link_to 'Editar', edit_curso_path(curso)
-            = link_to 'Excluir', curso_path(curso), data: {:confirm => 'Tem certeza?'}, method: :delete
-            = link_to 'Figura', figura_curso_path(curso)
-    .clearfix
+.col-md-4
+    .card.mb-4.shadow-sm
+        - if curso.figura.attachment
+            = image_tag url_for(curso.figura), class: "card-img-top figura-topo"
+        .card-body
+            %h5.card-title=link_to curso.nome, curso
+            %p.curso-desc.card-text= curso.desc
+            %p.curso-dados.card-text
+                %small.text-muted
+                    = curso.disciplinas.count 
+                    discplinas 
+                    | 
+                    = curso.materials.count
+                    posts 
+                - if admin_signed_in?
+                    %p
+                        = link_to 'Editar', edit_curso_path(curso)
+                        = link_to 'Excluir', curso_path(curso), data: {:confirm => 'Tem certeza?'}, method: :delete
+                        = link_to 'Figura', figura_curso_path(curso)
+            .clearfix

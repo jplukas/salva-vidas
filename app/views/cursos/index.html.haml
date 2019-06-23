@@ -1,8 +1,8 @@
+.jumbotron
+    %h1 Cursos
+    - if admin_signed_in?
+        %p= link_to 'Novo curso', new_curso_path
+    %p Todos os cursos cadastrados na plataforma:
 .row
-    .col-sm-8.cursos
-        %h1 Cursos
-        - if admin_signed_in?
-            %p= link_to 'Novo curso', new_curso_path
-        %p Todos os cursos cadastrados na plataforma:
-        =render @cursos
+    =render @cursos
 

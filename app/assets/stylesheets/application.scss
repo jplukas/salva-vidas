@@ -23,22 +23,6 @@ body {
     background-color: lightgray;
 }
 
-#logo {
-    float: left;
-    margin-right: 10px;
-    font-size: 1.7em;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: -1px;
-    padding-top: 9px;
-    font-weight: bold;
-    &:hover {
-      color: white;
-      text-decoration: none;
-    }
-}
-
-
 .comentarios-bottom-bar{
     //  display: inline-flex; 
 }
@@ -152,8 +136,20 @@ body {
             color: black;
         }
     }
+    &.cursos{
+        margin-bottom: 10px;
+        margin-bottom: 10px;
+        h2{
+            font-size: 2rem;
+        }
+    }
 }
 .comentario-editor{
     margin-top: 10px;
     margin-bottom: 10px;
+}
+
+.figura-topo{
+    height: 348px;
+    width: 100%;
 }
