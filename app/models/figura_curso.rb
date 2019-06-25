@@ -1,0 +1,2 @@
+class FiguraCurso < ApplicationRecord
+end

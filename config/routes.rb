@@ -24,9 +24,11 @@ Rails.application.routes.draw do
   get '/busca', controller: :busca, action: :buscar
   post '/favoritar', controller: :disciplinas, action: :bookmark 
   get '/novo-material', controller: :materials, action: :new2
-  get '/cursos/:id/figura', controller: :cursos, action: :upload_form, as: :figura_curso
+  get '/cursos/:id/figura', controller: :cursos, action: :figura, as: :figura_curso
+  get '/cursos/:id/upload', controller: :cursos, action: :upload_form, as: :curso_upload
   patch '/cursos/:id/figura', controller: :cursos, action: :upload
-  get '/disciplinas/:id/figura', controller: :disciplinas, action: :upload_form, as: :figura_disciplina
+  get '/disciplinas/:id/figura', controller: :disciplinas, action: :figura, as: :figura_disciplina
+  get '/disciplinas/:id/upload', controller: :disciplinas, action: :upload_form, as: :disciplina_upload
   patch '/disciplinas/:id/figura', controller: :disciplinas, action: :upload
   
 end

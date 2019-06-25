@@ -72,9 +72,19 @@ class DisciplinasController < ApplicationController
   end
   
   def upload
-    @disciplina = Disciplina.find(params[:id])
-    @disciplina.figura.attach(params[:disciplina][:file])
-    redirect_to curso_disciplinas_path(@disciplina.curso)
+    disciplina = Disciplina.find(params[:id])
+    figura = FiguraDisciplina.find_by(disciplina_id: params[:id])
+    figura.destroy! if figura
+    FiguraDisciplina.create! imagem: params[:disciplina][:file].read,
+                             arquivo: params[:disciplina][:file].original_filename,
+                             mimetype: params[:disciplina][:file].content_type,
+                             disciplina_id: params[:id]
+    redirect_to curso_disciplinas_path(disciplina.curso)
+  end
+  
+  def figura
+    figura = FiguraDisciplina.find_by(disciplina_id: params[:id])
+    send_data(figura.imagem, type: figura.mimetype, filename: "#{figura.arquivo}", disposition: "inline")
   end
 
   private

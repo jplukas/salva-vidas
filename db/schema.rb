@@ -10,28 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_14_171836) do
-
-  create_table "active_storage_attachments", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
-  end
-
-  create_table "active_storage_blobs", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
-    t.text "metadata"
-    t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
-    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
-  end
+ActiveRecord::Schema.define(version: 2019_06_25_193453) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id"
@@ -69,6 +48,26 @@ ActiveRecord::Schema.define(version: 2019_06_14_171836) do
     t.datetime "updated_at", null: false
     t.index ["curso_id"], name: "index_disciplinas_on_curso_id"
     t.index ["nome"], name: "index_disciplinas_on_nome"
+  end
+
+  create_table "figura_cursos", force: :cascade do |t|
+    t.string "arquivo"
+    t.binary "imagem"
+    t.string "mimetype"
+    t.integer "curso_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["curso_id"], name: "index_figura_cursos_on_curso_id"
+  end
+
+  create_table "figura_disciplinas", force: :cascade do |t|
+    t.string "arquivo"
+    t.binary "imagem"
+    t.string "mimetype"
+    t.integer "disciplina_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["disciplina_id"], name: "index_figura_disciplinas_on_disciplina_id"
   end
 
   create_table "materials", force: :cascade do |t|

@@ -1,7 +1,7 @@
 .col-md-4
     .card.mb-4.shadow-sm
-        - if curso.figura.attachment
-            = image_tag url_for(curso.figura), class: "card-img-top figura-topo"
+        - if figura = FiguraCurso.find_by(curso_id: curso.id)
+            = image_tag figura_curso_path(curso), class: "card-img-top figura-topo"
         .card-body
             %h5.card-title=link_to curso.nome, curso
             %p.curso-desc.card-text= curso.desc
@@ -16,5 +16,5 @@
                     %p
                         = link_to 'Editar', edit_curso_path(curso)
                         = link_to 'Excluir', curso_path(curso), data: {:confirm => 'Tem certeza?'}, method: :delete
-                        = link_to 'Figura', figura_curso_path(curso)
+                        = link_to 'Figura', curso_upload_path(curso)
             .clearfix

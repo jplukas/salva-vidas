@@ -51,9 +51,19 @@ class CursosController < ApplicationController
   end
   
   def upload
-    @curso = Curso.find(params[:id])
-    @curso.figura.attach(params[:curso][:file])
+    curso = Curso.find(params[:id])
+    figura = FiguraCurso.find_by(curso_id: params[:id])
+    figura.destroy! if figura
+    FiguraCurso.create! imagem: params[:curso][:file].read,
+                        arquivo: params[:curso][:file].original_filename,
+                        mimetype: params[:curso][:file].content_type,
+                        curso_id: params[:id]
     redirect_to cursos_path
+  end
+  
+  def figura
+    figura = FiguraCurso.find_by(curso_id: params[:id])
+    send_data(figura.imagem, type: figura.mimetype, filename: "#{figura.arquivo}", disposition: "inline")
   end
 
   private

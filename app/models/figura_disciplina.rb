@@ -1,0 +1,2 @@
+class FiguraDisciplina < ApplicationRecord
+end
