@@ -41,5 +41,7 @@ $(document).ready(function() {
         var id_curso = parseInt($(this).val());
         atualizaPorAjax($('#material_disciplina_id'), id_curso);
     });
+    
+    atualizaPorAjax($('#material_disciplina_id'), id_curso);
 
 });
