@@ -3,7 +3,7 @@
         .bottom-bar-item.comentarios
             %a{href: ("#{url_for material}#comentarios")}
                 =material_icon.forum.md_18
-                %span{data: {pontos_id: material.id}}
+                %span.voto_material{data: {pontos_id: material.id}}
                     =pluralize(material.comentarios.count, 'Comentário')
         - if user_signed_in?
             .bottom-bar-item.bookmark
@@ -30,12 +30,12 @@
                 .bottom-bar-item
                     %a.up{id: "material/#{material.id}/upvote", data: {id: material.id}}(href="javascript:void(0);")
                         - if sinal == +1
-                            = material_icon.thumb_up_alt.md_18.css_class("vote-up")
+                            = image_tag 'up-ativo.png'
                         - else
-                            = material_icon.thumb_up_alt.md_18
+                            = image_tag 'up-inativo.png'
                 .bottom-bar-item
                     %a.down{id: "material/#{material.id}/downvote", data: {id: material.id}}(href="javascript:void(0);")
                         - if sinal == -1
-                            = material_icon.thumb_down_alt.md_18.css_class("vote-down")
+                            = image_tag 'down-ativo.png'
                         - else
-                            = material_icon.thumb_down_alt.md_18
+                            = image_tag 'down-inativo.png'

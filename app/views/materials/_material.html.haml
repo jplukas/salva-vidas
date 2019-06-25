@@ -12,7 +12,7 @@
                     =time_ago_in_words material.created_at
                     ago
             .aval
-                %span
+                %span.voto_material{data: {pontos_id: material.id}}
                     =pluralize(material.votos.sum(:sinal), 'Ponto')
         .material-nome
             %h3
