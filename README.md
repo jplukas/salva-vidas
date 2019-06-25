@@ -22,11 +22,3 @@ bin/rake
 
 JavaScript: acesse a URL `/specs`
 
-## Modelos
-
-
-## Arquitetura
-
-
-## Contribuição dos membros
-
