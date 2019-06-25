@@ -47,6 +47,7 @@ PARTICIPAÇÃO DOS MEMBROS
 - Éderson
   Favoritos e likes
   Restrição de funcionalidades: visitante, usuário cadastrado, administrador
+  Busca
   Upload de figuras para cursos e disciplinas
   Testes de controladores e JavaScript
   Configuração da aplicação no Heroku
