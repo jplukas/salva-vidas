@@ -5,11 +5,12 @@
                 =material_icon.forum.md_18
                 %span{data: {pontos_id: material.id}}
                     =pluralize(material.comentarios.count, 'Comentário')
-        .bottom-bar-item.bookmark
-            - if current_user.bookmarked?(material)
-                =render "bookmarks/unbook_form", material: material
-            - else  
-                =render "bookmarks/book_form", material: material                    
+        - if user_signed_in?
+            .bottom-bar-item.bookmark
+                - if current_user.bookmarked?(material)
+                    =render "bookmarks/unbook_form", material: material
+                - else  
+                    =render "bookmarks/book_form", material: material                    
 
                 
         .bottom-bar-item.share
