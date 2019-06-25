@@ -24,7 +24,7 @@ class MaterialsController < ApplicationController
 
   def new2
     @cursos = Curso.order(:nome)
-    @disciplina = Disciplina.first
+    @disciplina = @cursos[0].disciplinas[0]
     @material = @disciplina.materials.build
   end
 
