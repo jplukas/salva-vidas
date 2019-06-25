@@ -1,0 +1,12 @@
+.row
+    .col-sm-8
+        =render @materiais
+
+    .col-sm-4
+        .content-box
+            %h1 Bookmarks
+            %p Aqui aparecem os posts das você salvou
+            %a.btn.btn-primary.btn-block(href="/novo-material")
+                %span{style: "font-weight: 700"}
+                    Postar material
+            

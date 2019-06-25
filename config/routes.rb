@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   get '/perfil', to: 'static_pages#perfil'
+  get '/bookmarks', to: 'static_pages#bookmarks'
   
   post '/voto-up', controller: :votos, action: :up
   post '/voto-down', controller: :votos, action: :down

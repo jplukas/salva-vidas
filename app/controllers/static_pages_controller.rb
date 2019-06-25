@@ -11,4 +11,12 @@ class StaticPagesController < ApplicationController
       redirect_to new_user_session_path
     end
   end
+
+  def bookmarks
+    if !user_signed_in?
+      flash[:danger] = "You have to be logged in to do that"
+      redirect_to new_user_session_path
+    end
+    @materiais = current_user.material_bookmarks
+  end
 end
