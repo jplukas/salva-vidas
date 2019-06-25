@@ -42,6 +42,6 @@ $(document).ready(function() {
         atualizaPorAjax($('#material_disciplina_id'), id_curso);
     });
     
-    atualizaPorAjax($('#material_disciplina_id'), id_curso);
+    $('p.selecao_curso select').change();
 
 });
