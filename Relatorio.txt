@@ -27,12 +27,11 @@ O QUE FALTA
 
 DIFICULDADES ENCONTRADAS
 
-Upload de imagens: usamos a gema ActiveStorage. Por padrão ela usa o sistema
-de arquivos, que no Heroku é efêmero. A gema pode ser configurada para usar
-serviços em nuvem (pagos!). Testamos um plugin que usa o banco de dados, mas
-está incompleto. Entre fazer o acesso às imagens na mão ou deixar "em aberto"
-preferimos deixar como está, no sistema de arquivos, subindo as imagens na 
-hora. Para uma hospedagem real, bastaria configurar um serviço na nuvem.
+Upload de imagens: usamos inicialmente a gema ActiveStorage. Por padrão ela 
+usa o sistema de arquivos, que no Heroku é efêmero. A gema pode ser 
+configurada para usar serviços em nuvem (pagos!). Testamos um plugin que usa 
+o banco de dados, mas está incompleto. Foi preciso abrir mão da gema e 
+programar upload na mão para salvar e recuperar imagens no BD.
 
 Testes do JavaScript: os componentes da interface manipulados pelas funções
 JavaScript não estão presentes no endpoint do Jasmine, que roda os testes.
