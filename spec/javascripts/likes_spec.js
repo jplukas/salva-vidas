@@ -26,8 +26,8 @@ describe('Interface de like e dislike muda conforme estado atual (obtido do serv
         cliqueLike(URL_TESTE_LIKE, 1, interf);
         expect(interf.pontos.text()).toBe('1 ponto');
         expect(interf.meu_voto.text()).toBe('Gostei');
-        expect($('img', interf.up).attr('src')).toContain('up-ativo.png');
-        expect($('img', interf.down).attr('src')).toContain('down-inativo.png');
+        expect($('img', interf.up).attr('src')).toContain('up-ativo');
+        expect($('img', interf.down).attr('src')).toContain('down-inativo');
     }
     
     function testaDislike() {
@@ -35,8 +35,8 @@ describe('Interface de like e dislike muda conforme estado atual (obtido do serv
         cliqueLike(URL_TESTE_LIKE, 1, interf);
         expect(interf.pontos.text()).toBe('1 ponto');
         expect(interf.meu_voto.text()).toBe('Não gostei');
-        expect($('img', interf.up).attr('src')).toContain('up-inativo.png');
-        expect($('img', interf.down).attr('src')).toContain('down-ativo.png');
+        expect($('img', interf.up).attr('src')).toContain('up-inativo');
+        expect($('img', interf.down).attr('src')).toContain('down-ativo');
     }
     
     it('Dá like quando não tem voto', testaLike);
@@ -48,8 +48,8 @@ describe('Interface de like e dislike muda conforme estado atual (obtido do serv
         cliqueLike(URL_TESTE_LIKE, 1, interf);
         expect(interf.pontos.text()).toBe('1 ponto');
         expect(interf.meu_voto.text()).toBe('');
-        expect($('img', interf.up).attr('src')).toContain('up-inativo.png');
-        expect($('img', interf.down).attr('src')).toContain('down-inativo.png');
+        expect($('img', interf.up).attr('src')).toContain('up-inativo');
+        expect($('img', interf.down).attr('src')).toContain('down-inativo');
     });
 
     it('Troca o like para dislike', function() {
