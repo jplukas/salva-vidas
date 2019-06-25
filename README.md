@@ -20,5 +20,5 @@ Ruby:
 bin/rake
 ```
 
-JavaScript: acesse a URL `/specs`
+JavaScript: acesse a URL `/specs` em ambiente de desenvolvimento
 
