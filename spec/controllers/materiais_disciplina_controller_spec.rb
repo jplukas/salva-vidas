@@ -24,21 +24,7 @@ RSpec.describe DisciplinasController, type: [:request, :controller] do
     it 'Mostra o número de likes' do
         distribui_likes
         get disciplina_path(1)
-        expect(response.body).to match(/Mat1(.*)1 ponto(.*)Mat2(.*)-1 ponto(.*)Mat3(.*)-2 pontos/m)
-    end
-    
-    it 'Mostra os likes do usuário' do
-        distribui_likes
-        sign_in @usuario
-        get disciplina_path(1)
-        expect(response.body).to match(/Mat1(.*)Gostei(.*)Mat2(.*)Mat3(.*)Não gostei/m)
-    end
-    
-    it 'Mostra os likes do usuário 2' do
-        distribui_likes
-        sign_in @outro_usuario
-        get disciplina_path(1)
-        expect(response.body).to match(/Mat1(.*)Mat2(.*)Não gostei(.*)Mat3(.*)Não gostei/m)
+        expect(response.body).to match(/1 Ponto(.*)Mat1(.*)-1 Ponto(.*)Mat2(.*)-2 Pontos(.*)Mat3/m)
     end
     
     def distribui_likes

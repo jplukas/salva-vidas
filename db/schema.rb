@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2019_06_25_193453) do
     t.datetime "updated_at", null: false
     t.string "link"
     t.index ["disciplina_id"], name: "index_materials_on_disciplina_id"
-    t.index ["nome", nil, nil], name: "index_materials_on_nome_and_disciplina_and_user"
+    t.index ["nome", "disciplina_id", "user_id"], name: "index_materials_on_nome_and_disciplina_id_and_user_id"
     t.index ["user_id"], name: "index_materials_on_user_id"
   end
 

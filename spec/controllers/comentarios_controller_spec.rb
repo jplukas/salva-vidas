@@ -49,7 +49,7 @@ RSpec.describe ComentariosController, type: [:request, :controller] do
         Comentario.create! user: usu2, material: @material, conteudo: 'com4'
         sign_in usu1
         get material_path(@material)
-        expect(response.body).to match(/com1(.*)<a(.*)>excluir<\/a>(.*)com2(.*)com3(.*)<a(.*)>excluir<\/a>(.*)com4(.*)/m)
+        expect(response.body).to match(/com1(.*)<a(.*)>Excluir<\/a>(.*)com2(.*)com3(.*)<a(.*)>Excluir<\/a>(.*)com4(.*)/m)
     end
     
     it 'Não deixa usuário não logado excluir comentário' do
@@ -100,7 +100,7 @@ RSpec.describe ComentariosController, type: [:request, :controller] do
         Comentario.create! user: usu2, material: @material, conteudo: 'com4'
         sign_in cria_admin
         get material_path(@material)
-        expect(response.body).to match(/com1(.*)<a(.*)>excluir<\/a>(.*)com2(.*)<a(.*)>excluir<\/a>(.*)com3(.*)<a(.*)>excluir<\/a>(.*)com4(.*)<a(.*)>excluir<\/a>(.*)/m)
+        expect(response.body).to match(/com1(.*)<a(.*)>Excluir<\/a>(.*)com2(.*)<a(.*)>Excluir<\/a>(.*)com3(.*)<a(.*)>Excluir<\/a>(.*)com4(.*)<a(.*)>Excluir<\/a>(.*)/m)
     end
     
     it 'Não deixa usuário não logado dar like no comentário' do
