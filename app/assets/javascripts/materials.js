@@ -1,17 +1,29 @@
 var URL_UP = '/voto-up';
 var URL_DOWN = '/voto-down';
 
+var cursos_disciplinas_cache = {};
+
+function carregarComboCom(combo_disciplina, disciplinas) {
+    $('option', combo_disciplina).remove()
+    for (d in disciplinas) {
+        var option = document.createElement('option');
+        option.value = parseInt(disciplinas[d].id);
+        option.textContent = disciplinas[d].nome;  // Faz o escape :)
+        combo_disciplina.append(option);
+    }
+}
+
 function atualizaPorAjax(combo_disciplina, id_curso) {
+    if (cursos_disciplinas_cache[id_curso]) {
+        carregarComboCom(combo_disciplina, cursos_disciplinas_cache[id_curso]);
+        return;
+    }
+
     $.get(
         '/cursos/' + id_curso + '/disciplinas.json',
         function(disciplinas) {
-            $('option', combo_disciplina).remove()
-            for (d in disciplinas) {
-                var option = document.createElement('option');
-                option.value = parseInt(disciplinas[d].id);
-                option.textContent = disciplinas[d].nome;  // Faz o escape :)
-                combo_disciplina.append(option);
-            }
+            cursos_disciplinas_cache[id_curso] = disciplinas;
+            carregarComboCom(combo_disciplina, disciplinas);
         }
     );
 }

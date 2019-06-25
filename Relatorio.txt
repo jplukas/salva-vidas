@@ -23,8 +23,6 @@ negativo. Se clicar em um voto dado, ele é retirado.
 O QUE FALTA
 
 - Testes para as funcionalidades de bookmark
-- Um cache das disciplinas carregadas por AJAX
-- Salvar uploads de imagens no banco de dados
 
 
 DIFICULDADES ENCONTRADAS
