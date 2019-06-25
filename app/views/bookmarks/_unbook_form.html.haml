@@ -1,0 +1,7 @@
+=form_for(:bookmark, url: bookmark_path(current_user.bookmarks.find_by(material_id: material.id)), |
+    html:{method: :delete},                                                                        |
+    remote: true) do |f|
+    %button{:type => "submit", :name => "commit"}
+        =material_icon.bookmark.md_18
+        %span.bookmark-button
+            (un)Bookmark

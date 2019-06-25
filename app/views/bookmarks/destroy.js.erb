@@ -1,0 +1,6 @@
+<% b = current_user.bookmarked?(@material)%>
+<% if b %>
+    $("#materials\\/<%= @material.id%> .bookmark").html("<%= escape_javascript(render('bookmarks/unbook_form', material: @material))%>");
+<% else %>
+    $("#materials\\/<%= @material.id%> .bookmark").html("<%= escape_javascript(render('bookmarks/book_form', material: @material))%>");
+<% end %>

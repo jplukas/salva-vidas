@@ -1,0 +1,5 @@
+=form_for(:bookmark, url: material_bookmarks_path(material), remote: true) do |f|
+    %button{:type => "submit", :name => "commit"}
+        =material_icon.bookmark.md_18
+        %span.bookmark-button
+            Bookmark
