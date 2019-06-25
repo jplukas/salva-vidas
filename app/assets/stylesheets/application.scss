@@ -28,31 +28,47 @@ body {
 }
 
 .interacao{
-    margin: 0px;
-    font-weight: 700;
+    margin: 0px !important;
+    font-weight: 700 !important;
     // line-height: 18px;
     vertical-align: middle !important;
     a{
-        text-decoration: none;
-        color: gray;
+        text-decoration: none !important;
+        color: gray !important;
         display: inline-flex !important;
         // height: 18px;
     }
     div{
         display: inline-flex !important;
         // height: 18px !important;
-    } 
+    }
+    input, button{
+        border: inherit;
+        display: flex;
+        padding:0 !important;
+        line-height: 21px;
+        font-family: inherit;
+        font-size: inherit;
+        font-weight: inherit;
+        color: inherit;
+        padding: inherit;
+        width: inherit;
+        background: inherit;
+        vertical-align: inherit;
+        height: 21px;
+        align-items: center;
+    }
 }
 
 .bottom-bar-item{
     // margin-right: 2px;
     // padding-right: 2px;
     // padding-left: 2px;
-    padding: 2px;
-    border-radius: 2px;
-    color: gray;
+    padding: 2px !important;
+    border-radius: 2px !important;
+    color: gray !important;
     &:hover{
-        background-color: lightgray;
+        background-color: lightgray !important;
     }
 }
 
@@ -150,6 +166,12 @@ body {
 }
 
 .figura-topo{
-    height: 348px;
+    height: 260px;
     width: 100%;
+}
+
+.linkButton { 
+    background: none;
+    border: none;
+    cursor: pointer; 
 }

@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :materiais_seguidos, class_name: "Material", through: :seguindo, source: :materials
 
   has_many :bookmarks
-  has_many :material_bookmarks, class_name: "Material", through: :bookmarks, source: :material_id
+  has_many :material_bookmarks, class_name: "Material", through: :bookmarks, source: :material
 
   validates :nome, presence: true, length: {maximum: 15}
 
@@ -34,7 +34,7 @@ class User < ApplicationRecord
     material_bookmarks.include?(material)
   end
 
-  def seguir (material)
+  def bookmark (material)
     material_bookmarks << material unless bookmarked?(material)
   end
 

@@ -6,10 +6,13 @@
                 %span{data: {pontos_id: material.id}}
                     =pluralize(material.comentarios.count, 'Comentário')
         .bottom-bar-item.bookmark
-            %a(href="javascript:void(0);")
-                =material_icon.bookmark.md_18
-                %span
-                    Bookmark
+            =form_for(:bookmark, url: material_bookmarks_path(material), remote: true) do |f|
+                %button{:type => "submit", :name => "commit"}
+                    =material_icon.bookmark.md_18
+                    %span
+                        Bookmark    
+
+                
         .bottom-bar-item.share
             %a(href="javascript:void(0);")
                 =material_icon.share.md_18
