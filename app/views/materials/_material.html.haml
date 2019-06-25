@@ -19,5 +19,6 @@
                 =link_to material.nome, material
         .material-conteudo
             =formata_conteudo(material.conteudo)
+            =link_to material.link
         =render 'materials/interacao', material: material
     = yield(:comentarios) if content_for?(:comentarios)
