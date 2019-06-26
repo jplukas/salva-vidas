@@ -1,15 +1,20 @@
+function favoritar(link) {
+    var id = link.data('id');
+    $.post(
+        '/favoritar', 
+        {id: id},
+        function(data) {
+            link.html('<img src="' + (data.bookmarked ? '<%=image_path("favorito-ativo.png")%>' : '<%=image_path("favorito-inativo.png")%>') + '">');
+        }
+    );
+
+}
+
 $(document).ready(function() {
 
     $(document).on('click', '.fav-button a', function() {
         var link = $(this);
-        var id = link.data('id');
-        $.post(
-            '/favoritar', 
-            {id: id},
-            function(data) {
-                link.html('<img src="' + (data.bookmarked ? '<%=image_path("favorito-ativo.png")%>' : '<%=image_path("favorito-inativo.png")%>') + '">');
-            }
-        );
+        favoritar(link);
     });
     
 });
