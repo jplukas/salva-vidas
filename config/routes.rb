@@ -13,8 +13,7 @@ Rails.application.routes.draw do
       end
     end
   end
-
-  get '/perfil', to: 'static_pages#perfil'
+  
   get '/bookmarks', to: 'static_pages#bookmarks'
   
   post '/voto-up', controller: :votos, action: :up

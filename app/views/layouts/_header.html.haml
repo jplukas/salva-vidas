@@ -15,6 +15,7 @@
           .dropdown-menu
             =link_to 'Editar Cadastro', edit_user_registration_path, class: "dropdown-item"
             =link_to 'Sair', destroy_user_session_path, method: :delete, class: "dropdown-item"
+            =link_to 'Materiais favoritos', "/bookmarks", class: "dropdown-item"
       - else
         %li.nav-item= link_to 'Entrar', new_user_session_path, class: "nav-link"
         %li.nav-item= link_to 'Cadastrar', new_user_registration_path, class: "nav-link"
