@@ -62,7 +62,9 @@ PARTICIPAÇÃO DOS MEMBROS
 - João Pedro
   Estética (CSS/Bootstrap)
   Navegação pelas listas e formulários de cadastro (controllers e views)
-  Favoritos e likes (back-end)
+  Favoritos e likes (back-end e AJAX dos Favoritos)
+  Relacionamentos entre modelos (parte)
+  
   
 - Gabriel
   Sketch visual (PDF)
