@@ -1,8 +1,20 @@
+PROJETO - Salva Vidas
+
+Éderson Cássio Lacerda Ferreira
+Gabriel Kazuyuki Isomura
+João Pedro Lukasavicus Silva
+Tomás Eugênio de Souza Matheus
+
+Repositório: https://github.com/jplukas/salva-vidas
+Heroku: https://salvavidas.herokuapp.com/
+
+
 FUNCIONALIDADES
 
 Administrador: cadastrar cursos e disciplinas, subir figuras. Para criar um
 administrador, cadastre um usuário, entre no banco de dados ou rails console 
-e mude o campo "admin" para o valor true.
+e mude o campo "admin" para o valor true. No Heroku já tem um cadastrado:
+e-mail admin@admin.com, senha 123456.
 
 Favoritar disciplinas (ícone da estrela): os materiais aparecem na home do
 usuário. 
@@ -37,12 +49,23 @@ mockados, criados somente em memória. Optou-se pela segunda alternativa.
 
 PARTICIPAÇÃO DOS MEMBROS
 
+(mais detalhes nos commits)
+
 - Éderson
-  Favoritos e likes
+  Favoritos e likes (front-end AJAX)
   Restrição de funcionalidades: visitante, usuário cadastrado, administrador
   Busca
   Upload de figuras para cursos e disciplinas
   Testes de controladores e JavaScript
-  Configuração da aplicação no Heroku: https://salvavidas.herokuapp.com/
+  Configuração da aplicação no Heroku
   
-- ....
+- João Pedro
+  Estética (CSS/Bootstrap)
+  Navegação pelas listas e formulários de cadastro (controllers e views)
+  Favoritos e likes (back-end)
+  
+- Gabriel
+  Sketch visual (PDF)
+  
+- Tomás
+  Participação na 1ª reunião para montagem do esqueleto da aplicação

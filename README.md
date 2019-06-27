@@ -2,7 +2,7 @@
 
 ## Utilização
 
-Setup básico de uma aplicação Rails. No seeds.rb existem alguns dados de exemplo.
+Setup básico de uma aplicação Rails.
 
 ```
 bin/bundle install
